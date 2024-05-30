@@ -1,0 +1,71 @@
+﻿<header class="header">
+    <div class="header-1">
+    
+        <a href="#" class="logo"> <i class="fas fa-book"></i> Books4MU </a>
+    
+        @*<form action="" class="search-form">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>*@
+    
+        <div class="icons">
+            @*
+            <div id="search-btn" class="fas fa-search"></div>
+            *@
+            <a href="/cart" class="fas fa-shopping-cart"></a>
+            <div id="login-btn" @onclick="ChangeLoginFormContainerStateClass" class="fas fa-user"></div>
+        </div>
+    
+    </div>
+    
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="/">Главная</a>
+            <a href="/#featured">Скидки</a>
+            <a href="/#category">Категории</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/feedback">Обратная связь</a>
+        </nav>
+    </div>
+    
+
+</header>
+
+<nav class="bottom-navbar">
+    <a href="/" class="fas fa-home"></a>
+    <a href="/catalog" class="fas fa-book-open"></a>
+    <a href="/#featured" class="fas fa-tags"></a>
+    <a href="/#category" class="fas fa-list"></a>
+    <a href="/feedback" class="fas fa-feedback"></a>
+</nav>
+
+<!-- login form  -->
+<div class="@_loginFormContainerStateClass">
+    <div @onclick="ChangeLoginFormContainerStateClass" id="close-login-btn" class="fas fa-times"></div>
+    
+    <form action="">
+        <h3>Авторизация</h3>
+        <span>Имя пользователя</span>
+        <input type="text" name="" class="box" placeholder="Введите имя пользователя" id="">
+        <span>Пароль</span>
+        <input type="password" name="" class="box" placeholder="Введите ваш пароль" id="">
+        <input type="submit" value="Войти" class="btn">
+        <p>Ещё не с нами? <a href="#">Создать аккаунт</a></p>
+    </form>
+</div>
+
+@code{
+
+    private const string LoginFormContainerClass = "login-form-container";
+    private const string LoginFormContainerActiveClass = "login-form-container active";
+
+    private string _loginFormContainerStateClass = LoginFormContainerClass;
+    
+    private void ChangeLoginFormContainerStateClass() =>
+        _loginFormContainerStateClass = _loginFormContainerStateClass == LoginFormContainerClass
+            ? LoginFormContainerActiveClass
+            : LoginFormContainerClass;
+
+}
+
+    

@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+
+<HeaderBar/>
+
+@Body
+
+<!-- loader  -->
+<div class="@_loadingPageState">
+    <img src="./assets/images/loader-img.gif" alt="">
+</div>
+
+<FooterBar/>
+
+
+
+
+@code{
+    private const string LoadingPageClass = "loader-container";
+    private const string LoadingPageActiveClass = "loader-container active";
+
+    private string _loadingPageState = LoadingPageClass;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        await Task.Delay(3000);
+        _loadingPageState = LoadingPageActiveClass;
+    }
+
+
+}
+
