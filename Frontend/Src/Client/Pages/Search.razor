@@ -1,0 +1,31 @@
+﻿@page "/search-page"
+
+<div class="heading">
+   <h3>Поисковая страница</h3>
+   <p> <a href="home">Главная</a> / Поиск </p>
+</div>
+
+<section class="search-form">
+   <form action="" method="post">
+      <input type="text" name="search" placeholder="Поиск по названию или автору" class="box">
+      <input type="submit" name="submit" value="Поиск" class="btn">
+   </form>
+</section>
+
+<section class="products" style="padding-top: 0;">
+   <div class="box-container">
+      @*<form action="" method="post" class="box">
+         <img src="ImageSource" alt="" class="image">
+         <div class="name">Name</div>
+         <div class="price">5</div>
+         <input type="number"  class="qty" name="product_quantity" min="1" value="1">
+         <input type="hidden" name="product_name" value="Name">
+         <input type="hidden" name="product_price" value="Price">
+         <input type="hidden" name="product_image" value="Image">
+         <input type="submit" class="btn" value="add to cart" name="add_to_cart">
+      </form>*@
+      
+      <p class="empty">Здесь пока ничего нет!</p>
+
+   </div>
+</section>

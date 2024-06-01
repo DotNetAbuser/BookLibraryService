@@ -1,481 +1,66 @@
 ﻿@page "/"
+@page "/home"
 
-<PageTitle>Главная</PageTitle>
+<section class="home">
 
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-    <div class="row">
-
-        <div class="content">
-            <h3>Скидки 25%</h3>
-            <p>Если вы студент инженерного факультета и вам нужны книги, 
-                Books4MU предлагает отличные предложения на широкий 
-                ассортимент книг. Купите эти книги от ведущих авторов и 
-                воспользуйтесь огромной скидкой.</p>
-            <a href="/#featured" class="btn">Купить сейчас</a>
-        </div>
-
-        <div class="swiper books-slider">
-            <div class="swiper-wrapper">
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-1.png" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-2.png" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-3.png" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-4.png" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-5.png" alt=""></a>
-                <a href="#" class="swiper-slide"><img src="./assets/images/book-6.png" alt=""></a>
-            </div>
-            <img src="./assets/images/stand.png" class="stand" alt="">
-        </div>
-
-    </div>
+   <div class="content">
+      <h3>Книги открывают новые двери.</h3>
+   </div>
 
 </section>
 
-<!-- home section ense  -->
+<section class="products">
 
-<!-- icons section starts  -->
+   <h1 class="title">Последние поступления</h1>
 
-<section class="icons-container">
+   <div class="box-container">
 
-    <div class="icons">
-        <i class="fas fa-shipping-fast"></i>
-        <div class="content">
-            <h3>Бесплатная доставка</h3>
-            <p>при заказе от 1000</p>
-        </div>
-    </div>
 
-    <div class="icons">
-        <i class="fas fa-lock"></i>
-        <div class="content">
-            <h3>Безопасная оплата</h3>
-            <p>100% безопасность при совершение платежей</p>
-        </div>
-    </div>
+     @*<form action="" method="post" class="box">
+      <img class="image" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+      <div class="name">$1$<?php echo $fetch_products['name']; ?>#1#</div>
+      <div class="price">$1$<?php echo $fetch_products['price']; ?>#1#/-</div>
+      <input type="number" min="1" name="product_quantity" value="1" class="qty">
+      <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
+      <input type="hidden" name="product_price" value="<?php echo $fetch_products['price']; ?>">
+      <input type="hidden" name="product_image" value="<?php echo $fetch_products['image']; ?>">
+      <input type="submit" value="Взять почитать" name="add_to_cart" class="btn">
+     </form>*@
+     
+     <p class="empty">Здесь пока ничего нет!</p>
 
-    <div class="icons">
-        <i class="fas fa-redo-alt"></i>
-        <div class="content">
-            <h3>Легкий возврат</h3>
-            <p>10 дней на возврат</p>
-        </div>
-    </div>
+   </div>
 
-    <div class="icons">
-        <i class="fas fa-headset"></i>
-        <div class="content">
-            <h3>24/7 Поддержка</h3>
-            <p>Звоните в любое время</p>
-        </div>
-    </div>
+   <div class="load-more" style="margin-top: 2rem; text-align:center">
+      <a href="shop" class="option-btn">Посмотреть все</a>
+   </div>
 
 </section>
 
-<!-- icons section ends -->
+<section class="about">
 
-<!-- featured section starts  -->
+   <div class="flex">
 
-<section class="featured" id="featured">
+      <div class="image">
+         <img src="images/about-img.jpg" alt="">
+      </div>
 
-    <h1 class="heading"> <span>Огромные скидки</span> </h1>
+      <div class="content">
+         <h3>О нас</h3>
+         <p>Узнайте о отзывах о нас  и о наших авторах!</p>
+         <a href="about" class="btn">Читать больше</a>
+      </div>
 
-    <div class="swiper featured-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                   <a href="./product.html"> <img src="./assets/images/book-1.png" alt=""> </a>
-                </div>
-                <div class="content">
-                    <h3>Книга 1</h3>
-                    <div class="price">₽299 <span>₽599</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <a href="./product.html"> <img src="./assets/images/book-2.png" alt=""> </a>
-                </div>
-                <div class="content">
-                    <h3>Книга 2</h3>
-                    <div class="price">₽499 <span>₽799</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <a href="product.html"><img src="./assets/images/book-3.png" alt=""> </a>
-                </div>
-                <div class="content">
-                    <h3>Книга 3</h3>
-                    <div class="price">₽499 <span>₽999</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-4.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 4</h3>
-                    <div class="price">₽449 <span>₽729</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-5.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 5</h3>
-                    <div class="price">₽549 <span>₽699</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-6.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 6</h3>
-                    <div class="price">₽399 <span>₽799</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-7.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 7</h3>
-                    <div class="price">₽399 <span>₽699</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-8.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 8</h3>
-                    <div class="price">₽479 <span>₽599</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-9.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 9</h3>
-                    <div class="price">₽699 <span>₽999</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-            <div class="swiper-slide box">
-                <div class="icons">
-                    <a href="#" class="fas fa-eye"></a>
-                </div>
-                <div class="image">
-                    <img src="./assets/images/book-10.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Книга 10</h3>
-                    <div class="price">₽629 <span>₽859</span></div>
-                    <a href="/cart" class="btn">В корзину</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-
-    </div>
+   </div>
 
 </section>
 
-<!-- featured section ends -->
+<section class="home-contact">
 
-<!-- newsletter section starts -->
-
-<section class="newsletter">
-
-    <form action="">
-        <h3>Подписка на акции и предложения</h3>
-        <input type="email" name="" placeholder="Введите вашу почту" id="" class="box">
-        <input type="submit" value="subscribe" class="btn">
-    </form>
+   <div class="content">
+      <h3>Есть вопросы?</h3>
+      <p>Свяжитесь с нами, мы работаем круглосуточно, ответим на любой ваш вопрос!</p>
+      <a href="contact" class="white-btn">Связь с нами</a>
+   </div>
 
 </section>
-
-<!-- newsletter section ends -->
-
-<!-- category section starts  -->
-
-<section class="arrivals" id="category">
-
-    <h1 class="heading"> <span>Категории</span> </h1>
-
-    <div class="swiper arrivals-slider">
-
-        <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-1.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 1</h3>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-4.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 2</h3> 
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-6.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 3</h3>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-7.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 4</h3>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="swiper arrivals-slider">
-
-        <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-8.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 5</h3>  
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-9.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 6</h3> 
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book-10.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 7</h3> 
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="./assets/images/book3.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>Категория 8</h3>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- category section ends -->
-
-<!-- feedback section starts  -->
-<section class="blogs" id="blogs">
-
-    <h1 class="heading"> <span>Обратная связь</span> </h1>
-
-    <section class="newsletter">
-
-        <form action="">
-            <h3>Дать обратную связь тут...</h3>
-            <a href="/feedback" class="btn">Обратная связь</a>
-            <!-- <a href="./feedback.html"><input type="submit" value="feedback"> </a>-->
-        </form>
-    
-    </section>
-</section>
-<!-- feedback section ends -->
-
-<script>
-var swiper = new Swiper(".books-slider", {
-  loop:true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-var swiper = new Swiper(".featured-slider", {
-  spaceBetween: 10,
-  loop:true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    450: {
-      slidesPerView: 2,
-    },
-    768: {
-      slidesPerView: 3,
-    },
-    1024: {
-      slidesPerView: 4,
-    },
-  },
-});
-
-var swiper = new Swiper(".arrivals-slider", {
-  spaceBetween: 10,
-  loop:true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-var swiper = new Swiper(".reviews-slider", {
-  spaceBetween: 10,
-  grabCursor:true,
-  loop:true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-
-var swiper = new Swiper(".blogs-slider", {
-  spaceBetween: 10,
-  grabCursor:true,
-  loop:true,
-  centeredSlides: true,
-  autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 2,
-    },
-    1024: {
-      slidesPerView: 3,
-    },
-  },
-});
-</script>

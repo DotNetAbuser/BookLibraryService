@@ -16,6 +16,35 @@
       <_ContentIncludedByDefault Remove="wwwroot\assets\js\form-validation.js" />
       <_ContentIncludedByDefault Remove="wwwroot\assets\js\product.js" />
       <_ContentIncludedByDefault Remove="wwwroot\assets\js\script.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\banner-bg.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog-1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog-2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog-3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog-4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\blog-5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-10.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-6.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-7.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-8.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book-9.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\book5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\deal-img.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\letter-bg.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\loader-img.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\pic-6.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\stand.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\images\worldmap.png" />
     </ItemGroup>
 
 </Project>

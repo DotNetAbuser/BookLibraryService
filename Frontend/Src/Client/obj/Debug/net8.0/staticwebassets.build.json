@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ql93+T8yFuT6FvC3HZqIoKBOyPEQqEeuYwcEY7IYSWo=",
+  "Hash": "XZxWQi59mrTcyYZeYICw5oh+Zim1u/MQrtFo/Qbl88Y=",
   "Source": "Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7788,12 +7788,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\app.css"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\cart.css",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\style.css",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/css/cart.css",
+      "RelativePath": "assets/css/style.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7804,15 +7804,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\cart.css"
+      "OriginalItemSpec": "wwwroot\\assets\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\styles.css",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\about-img.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/css/styles.css",
+      "RelativePath": "assets/images/about-img.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7823,15 +7823,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\styles.css"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\about-img.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\banner-bg.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-1.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/banner-bg.jpg",
+      "RelativePath": "assets/images/author-1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7842,15 +7842,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\banner-bg.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog-1.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-2.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/blog-1.jpg",
+      "RelativePath": "assets/images/author-2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7861,15 +7861,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\blog-1.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-2.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog-2.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-3.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/blog-2.jpg",
+      "RelativePath": "assets/images/author-3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7880,15 +7880,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\blog-2.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-3.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog-3.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-4.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/blog-3.jpg",
+      "RelativePath": "assets/images/author-4.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7899,15 +7899,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\blog-3.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-4.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog-4.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-5.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/blog-4.jpg",
+      "RelativePath": "assets/images/author-5.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7918,15 +7918,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\blog-4.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-5.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog-5.jpg",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\author-6.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/blog-5.jpg",
+      "RelativePath": "assets/images/author-6.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7937,15 +7937,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\blog-5.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\author-6.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-1.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\bash_and_lucy-2.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-1.png",
+      "RelativePath": "assets/images/bash_and_lucy-2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7956,15 +7956,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-1.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\bash_and_lucy-2.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-10.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\be_well_bee.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-10.png",
+      "RelativePath": "assets/images/be_well_bee.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7975,15 +7975,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-10.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\be_well_bee.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-2.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\boring_girls_a_novel.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-2.png",
+      "RelativePath": "assets/images/boring_girls_a_novel.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -7994,15 +7994,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-2.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\boring_girls_a_novel.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book3.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\clever_lands.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book3.png",
+      "RelativePath": "assets/images/clever_lands.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8013,15 +8013,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book3.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\clever_lands.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-3.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\darknet.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-3.png",
+      "RelativePath": "assets/images/darknet.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8032,15 +8032,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-3.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\darknet.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-4.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\economic.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-4.png",
+      "RelativePath": "assets/images/economic.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8051,15 +8051,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-4.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\economic.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book5.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\freefall.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book5.png",
+      "RelativePath": "assets/images/freefall.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8070,15 +8070,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book5.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\freefall.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-5.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\heading-bg.webp",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-5.png",
+      "RelativePath": "assets/images/heading-bg.webp",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8089,15 +8089,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-5.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\heading-bg.webp"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-6.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\history_of_modern_architecture.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-6.png",
+      "RelativePath": "assets/images/history_of_modern_architecture.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8108,15 +8108,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-6.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\history_of_modern_architecture.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-7.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\holy_ghosts.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-7.png",
+      "RelativePath": "assets/images/holy_ghosts.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8127,15 +8127,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-7.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\holy_ghosts.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-8.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\home-bg.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-8.png",
+      "RelativePath": "assets/images/home-bg.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8146,15 +8146,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-8.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\home-bg.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\book-9.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\lloyd.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/book-9.png",
+      "RelativePath": "assets/images/lloyd.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8165,45 +8165,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\book-9.png"
-    },
-    {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\deal-img.jpg",
-      "SourceId": "Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "assets/images/deal-img.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\deal-img.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\letter-bg.jpg",
-      "SourceId": "Client",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "assets/images/letter-bg.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\letter-bg.jpg"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\lloyd.jpg"
     },
     {
       "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\loader-img.gif",
@@ -8223,6 +8185,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\loader-img.gif"
+    },
+    {
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\nightshade.jpg",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "assets/images/nightshade.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\nightshade.jpg"
     },
     {
       "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\pic-1.png",
@@ -8339,12 +8320,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\pic-6.png"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\stand.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\radical_gardening.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/stand.png",
+      "RelativePath": "assets/images/radical_gardening.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8355,15 +8336,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\stand.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\radical_gardening.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\worldmap.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\red_queen.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "assets/images/worldmap.png",
+      "RelativePath": "assets/images/red_queen.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8374,15 +8355,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\worldmap.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\red_queen.jpg"
     },
     {
-      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\shattered.jpg",
       "SourceId": "Client",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "favicon.png",
+      "RelativePath": "assets/images/shattered.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -8393,7 +8374,64 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.png"
+      "OriginalItemSpec": "wwwroot\\assets\\images\\shattered.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_girl_of_ink_and_stars.jpg",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "assets/images/the_girl_of_ink_and_stars.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\the_girl_of_ink_and_stars.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_happy_lemon.jpg",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "assets/images/the_happy_lemon.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\the_happy_lemon.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_world.jpg",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "assets/images/the_world.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\the_world.jpg"
     },
     {
       "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Frontend\\Src\\Client\\wwwroot\\index.html",

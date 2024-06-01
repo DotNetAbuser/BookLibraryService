@@ -26,6 +26,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Layout/EmptyLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEVtcHR5TGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Layout/FooterBar.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEZvb3RlckJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,20 +42,36 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Cart.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Catalog.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Feedback.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmVlZGJhY2sucmF6b3I=
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Contact.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/Search.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhcmNoLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/SignIn.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnbkluLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/Pages/SignUp.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2lnblVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ilyao/Desktop/Projects/BookStoreService/Frontend/Src/Client/_Imports.razor]
