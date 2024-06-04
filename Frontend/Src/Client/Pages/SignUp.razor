@@ -3,18 +3,63 @@
 
 <div class="form-container">
 
-   <form action="" method="post">
-      <h3>Регистрация</h3>
-      <input type="text" name="last-name" placeholder="Введите вашу фамилию" class="box">
-      <input type="text" name="first-name" placeholder="Введите ваше имя" class="box">
-      <input type="text" name="middle-name" placeholder="Введите ваше отчество" class="box">
-      <input type="tel" name="phone" placeholder="Введите номер телефона"class="box">
-      <input type="email" name="email" placeholder="Введите электронную почту" class="box">
-      <input type="text" name="username" placeholder="Введите имя пользователя" class="box">
-      <input type="password" name="password" placeholder="Введите пароль" required class="box">
-      <input type="password" name="confirm-password" placeholder="Повторите введённый пароль" class="box">
-      <input type="submit" name="submit" value="Зарегистрироваться" class="btn">
-      <p>Уже с нами? <a href="sign-in">Авторизироваться</a></p>
-   </form>
+   @if (!_isBusy)
+   {
+      <EditForm Model="_request" OnValidSubmit="SubmitFormAsync">
+         <DataAnnotationsValidator/>
+         <h3>Регистрация</h3>
+         <InputText @bind-Value="_request.Email" type="text" name="email" placeholder="Введите электронную почту" class="box"/>
+         <InputText @bind-Value="_request.Username" type="text" name="username" placeholder="Введите имя пользователя" class="box"/>
+         <InputText @bind-Value="_request.Password" type="password" name="password" placeholder="Введите пароль" class="box"/>
+         <InputText @bind-Value="_request.ConfirmPassword" type="password" name="confirm-password" placeholder="Повторите введённый пароль" class="box"/>
+         <ValidationSummary/>
+         <input type="submit" name="submit" value="Зарегистрироваться" class="btn">
+         <p>Уже с нами? <a href="sign-in">Авторизироваться</a></p>
+      </EditForm>
+   }
+   else
+   {
+      <div class="loader-container">
+         <img src="./assets/images/loader-img.gif" alt="">
+      </div>
+   }
+   
 
 </div>
+
+@code{
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] NavigationManager NavigationManager { get; set; } = default!;
+   [Inject] IUserManager UserManager { get; set; } = default!;
+
+   private bool _isBusy;
+   private SignUpRequest _request = new();
+
+   private async Task SubmitFormAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await UserManager.CreateAsync(_request);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         NavigationManager.NavigateTo(NavigationManager.BaseUri + "sign-in", true,true);
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+}

@@ -1,1 +1,21 @@
-﻿
+﻿global using Application.IHelpers;
+global using Application.IRepositories;
+global using Infrastructure.Helpers;
+global using Infrastructure.Repositories;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.ComponentModel;
+global using Application.IServices;
+global using Infrastructure.Services;
+global using Shared;
+global using Shared.Contracts;
+global using Domain.Entities;
+global using Domain.Context;
+global using Microsoft.EntityFrameworkCore;
+global using Domain.Enums;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Security.Cryptography;
+global using System.Text;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.AspNetCore.Http;

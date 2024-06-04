@@ -1,1 +1,18 @@
-﻿
+﻿global using Shared;
+global using Shared.Contracts;
+global using System.Net;
+global using System.Net.Http.Headers;
+global using Infrastructure.Managers;
+global using Infrastructure.Services;
+global using System.Security.Claims;
+global using Microsoft.AspNetCore.Components.Authorization;
+global using Blazored.SessionStorage;
+global using System.IdentityModel.Tokens.Jwt;
+global using Infrastructure.Constants;
+global using Infrastructure.Handlers;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using System.Net.Http.Json;
+global using Infrastructure.Extensions;
+global using Infrastructure.Routes;

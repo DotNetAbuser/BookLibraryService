@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxwJ01fcDn6WSSjsyM6qVmtrYgohVffOflj3So/yZ2JPUIpSXQMAmTNvEMRAuUbwmW+8KKRoZ7x+RjzvRfn6cw==",
+  "dgSpecHash": "iuYk1P+bW8RHA44flSxVqNBRnlWeLwRWdXsASlinBOYm3nVtwzRf9vqvxbPnRRA7LI4d2GFMfvyIaxPTcyLf0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj",
+  "projectFilePath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

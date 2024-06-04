@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\Application.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\Application.csproj",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\obj\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\Domain.csproj"
+              "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj": {
-                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj"
+              "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj"
               }
             }
           }
@@ -51,6 +51,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -71,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\Domain.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -112,9 +118,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
             }
           },
           "imports": [
@@ -137,14 +151,14 @@
         }
       }
     },
-    "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -166,8 +180,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Backend\\Src\\Application\\Application.csproj"
+              "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Backend\\Src\\Application\\Application.csproj"
               }
             }
           }
@@ -181,6 +195,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -201,14 +225,14 @@
         }
       }
     },
-    "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj": {
+    "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj",
+        "projectUniqueName": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj",
         "projectName": "Shared",
-        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\Shared.csproj",
+        "projectPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\Shared.csproj",
         "packagesPath": "C:\\Users\\ilyao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookStoreService\\Shared\\Src\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Shared\\Src\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,14 +1,65 @@
 ﻿@page "/sign-in"
+
 @layout EmptyLayout
 
 <div class="form-container">
 
-   <form action="" method="post">
-      <h3>Вход в систему</h3>
-      <input type="text" name="username" placeholder="Введите имя пользователя" required class="box">
-      <input type="password" name="password" placeholder="Введите пароль" required class="box">
-      <input type="submit" name="submit" value="Войти" class="btn">
-      <p>Ещё нет аккаунта? <a href="sign-up">Зарегистрироваться</a></p>
-   </form>
-
+   @if (!_isBusy)
+   {
+      <EditForm Model="_request" OnValidSubmit="SubmitFormAsync" novalidate>
+         <DataAnnotationsValidator/>
+         <h3>Вход в систему</h3>
+         <InputText @bind-Value="_request.Username" type="text" name="username" placeholder="Введите имя пользователя"  class="box"/>
+         <InputText @bind-Value="_request.Password" type="password" name="password" placeholder="Введите пароль" class="box"/>
+         <ValidationSummary/>
+         <input type="submit" name="submit" value="Войти" class="btn">
+         <p>Ещё нет аккаунта? <a href="sign-up">Зарегистрироваться</a></p>
+      </EditForm>
+   }
+   else
+   {
+      <div class="loader-container">
+         <img src="./assets/images/loader-img.gif" alt="">
+      </div>
+   }
 </div>
+
+@code{
+
+   [Inject] ITokenManager TokenManager { get; set; } = default!;
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+   private bool _isBusy;
+   private SignInRequest _request = new();
+
+   private async Task SubmitFormAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await TokenManager.SignInAsync(_request);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         NavigationManager.NavigateTo(NavigationManager.BaseUri, true,true);
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   
+
+}

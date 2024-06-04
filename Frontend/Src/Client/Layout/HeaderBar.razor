@@ -2,7 +2,11 @@
     <div class="flex">
         <div class="share">
         </div>
-        <p><a href="sign-in">Войти</a> | <a href="sign-up">Регистрация</a> </p>
+        <AuthorizeView>
+            <NotAuthorized>
+                <p><a href="sign-in">Войти</a> | <a href="sign-up">Регистрация</a> </p>
+            </NotAuthorized>
+        </AuthorizeView>
     </div>
 </div>
 
@@ -14,24 +18,41 @@
             <a href="home">Главная</a>
             <a href="about">О нас</a>
             <a href="catalog">Каталог</a>
-            <a href="contact">Связь с нами</a>
-            <a href="orders">Заказы</a>
+            <AuthorizeView>
+                <Authorized>
+                       <a href="review">Оставить отзыв</a>
+                       <a href="orders">Заказы</a>
+                </Authorized>
+            </AuthorizeView>
+     
         </nav>
 
         <div class="icons">
             <div id="menu-btn" @onclick="ChangeNavBarClass" class="fas fa-bars"></div>
             <a href="search-page" class="fas fa-search"></a>
-            <div id="@_userBtnStateClass" @onclick="ChangeUserBoxClass" class="fas fa-user"></div>
+            <AuthorizeView>
+                <Authorized>
+                    <div id="@_userBtnStateClass" @onclick="ChangeUserBoxClass" class="fas fa-user"></div>
+                </Authorized>
+            </AuthorizeView>
         </div>
 
-        <div class="@_userHomeStateClass">
-            <p>Имя пользовтеля : <span>TestUsername</span></p>
-            <a href="logout" class="delete-btn">Выйти</a>
-        </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class="@_userHomeStateClass">
+                    <p>Имя пользовтеля : <span>@context.User.Identity!.Name</span></p>
+                    <a @onclick="SignOut" class="delete-btn">Выйти</a>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+   
     </div>
 </div>
 
 @code{
+
+    [Inject] CustomAuthStateProvider CustomAuthStateProvider { get; set; } = default!;
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
 
     private const string NavBarActiveClass = "navbar active";
     private const string NavBarInactiveClass = "navbar";
@@ -62,6 +83,12 @@
         _userBtnStateClass = _userBtnStateClass == UserBtnInactiveClass
             ? UserBtnActiveClass
             : UserBtnInactiveClass;
+    }
+
+    private async Task SignOut()
+    {
+        await CustomAuthStateProvider.MarkUserAsLoggedOut();
+        NavigationManager.NavigateTo("/", true, true);
     }
  
 

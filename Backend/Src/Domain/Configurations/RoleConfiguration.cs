@@ -14,5 +14,19 @@ public class RoleConfiguration
         builder
             .HasMany(x => x.Users)
             .WithOne(x => x.Role);
+
+        builder.HasData(new List<RoleEntity>
+        {
+            new()
+            {
+                Id = (int)Role.Guest,
+                Name = "Гость"
+            },
+            new()
+            {
+                Id = (int)Role.Admin,
+                Name = "Админ"
+            }
+        });
     }
 }

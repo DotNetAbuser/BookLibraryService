@@ -508,6 +508,7 @@ section{
 }
 
 .reviews .box-container .box p{
+   height: 150px;
    padding:1rem 0;
    line-height: 2;
    color:var(--light-color);
@@ -999,4 +1000,69 @@ section{
 
 .loader-container img{
    height:10rem;
+}
+
+#full-stars-example-two {
+
+   /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+   .rating-group {
+      display: inline-flex;
+   }
+
+   /* make hover effect work properly in IE */
+   .rating__icon {
+      pointer-events: none;
+   }
+
+   /* hide radio inputs */
+   .rating__input {
+      position: absolute !important;
+      left: -9999px !important;
+   }
+
+   /* hide 'none' input from screenreaders */
+   .rating__input--none {
+      display: none
+   }
+
+   /* set icon padding and size */
+   .rating__label {
+      cursor: pointer;
+      padding: 0 0.1em;
+      font-size: 4rem;
+   }
+
+   /* set default star color */
+   .rating__icon--star {
+      color: orange;
+   }
+
+   /* if any input is checked, make its following siblings grey */
+   .rating__input:checked ~ .rating__label .rating__icon--star {
+      color: #ddd;
+   }
+
+   /* make all stars orange on rating group hover */
+   .rating-group:hover .rating__label .rating__icon--star {
+      color: orange;
+   }
+
+   /* make hovered input's following siblings grey on hover */
+   .rating__input:hover ~ .rating__label .rating__icon--star {
+      color: #ddd;
+   }
+}
+
+.loader {
+   border: 8px solid #f3f3f3; /* Light grey */
+   border-top: 8px solid var(--green); /* Blue */
+   border-radius: 50%;
+   width: 120px;
+   height: 120px;
+   animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
 }

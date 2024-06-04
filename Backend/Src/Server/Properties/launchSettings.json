@@ -4,6 +4,8 @@
     "Backend": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:6006",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

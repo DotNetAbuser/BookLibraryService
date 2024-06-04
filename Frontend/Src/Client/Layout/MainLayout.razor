@@ -1,21 +1,22 @@
 ﻿@inherits LayoutComponentBase
 
-<header class="header">
-    <HeaderBar/>
-</header>
+<CascadingAuthenticationState>
+    <header class="header">
+        <HeaderBar/>
+    </header>
 
-<main>
-    <article>
-        @Body
-    </article>
-</main>
+    <main>
+        <article>
+            @Body
+        </article>
+    </main>
 
-<section class="footer">
-    <FooterBar/>
-</section>
+    <section class="footer">
+        <FooterBar/>
+    </section>
+</CascadingAuthenticationState>
 
 @code{
 
 
 }
-

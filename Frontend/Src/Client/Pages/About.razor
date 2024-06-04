@@ -1,4 +1,7 @@
 ﻿@page "/about"
+@using Infrastructure.Constants
+
+@attribute [StreamRendering(true)]
 
 <div class="heading">
    <h3>О нас</h3>
@@ -26,90 +29,76 @@
 
 <section class="reviews">
 
-   <h1 class="title">Отзывы клиентов</h1>
+   <h1 class="title">Последние отзывы</h1>
 
    <div class="box-container">
 
-      <div class="box">
-         <img src="./assets/images/pic-1.png" alt="">
-         <p>Брал книгу в аренду на 1 месяц, после чего продлил еще на один, остался очень доволен!</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Амир Хайрутдинов</h3>
-      </div>
 
-      <div class="box">
-         <img src="./assets/images/pic-2.png" alt="">
-         <p>Взяла на 2 недели сказку, "Репка" мне очень понравилась.</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+      @foreach (var review in _reviewList) 
+      { 
+         <div class="box">
+            <img src="@(ApplicationConstants.BackendAddress + review.UserPicturePath)" alt="">
+            <p>@review.Content</p>
+            <div class="stars">
+               @if (review.Grade >= 1)
+               {
+                  <i class="fas fa-star"></i>
+               }
+               else
+               {
+                  <i class="far fa-star"></i>
+               }
+               @if (review.Grade >= 2)
+               {
+                  <i class="fas fa-star"></i>
+               }
+               else
+               {
+                  <i class="far fa-star"></i>
+               }
+               @if (review.Grade >= 3)
+               {
+                  <i class="fas fa-star"></i>
+               }
+               else
+               {
+                  <i class="far fa-star"></i>
+               }
+               @if (review.Grade >= 4)
+               {
+                  <i class="fas fa-star"></i>
+               }
+               else
+               {
+                  <i class="far fa-star"></i>
+               }
+               @if (review.Grade >= 5)
+               {
+                  <i class="fas fa-star"></i>
+               }
+               else
+               {
+                  <i class="far fa-star"></i>
+               }
+            </div>
+            <h3>@review.Username</h3>
          </div>
-         <h3>Адель Шпахина</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/pic-3.png" alt="">
-         <p>Брал повесть о похождениях Петра Великого очень понравился рекомендую!</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Булат Закиров</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/pic-4.png" alt="">
-         <p>Пользуюсь услугами этой организации уже 2 года очень довольна, всегда есть что взять почитать!</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-         </div>
-         <h3>Ильсия Ябарова</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/pic-5.png" alt="">
-         <p>Брал для учебы учебник по математике 11 класс, смогу подготовиться к ЕГЭ и сдал его на 82 балла, очень благодарен</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-         </div>
-         <h3>Сережа Мичурин</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/pic-6.png" alt="">
-         <p>Читаю каждый день, по 5 часов в день, очень благодарна данному проекта моего знакомого-друга Азиза!</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
-         <h3>Мария Утьясова</h3>
-      </div>
-
+      }
    </div>
 
+   @if (_isBusyReviews)
+   {
+      <div  style="display: flex; justify-content: center;">
+         <div class="loader"></div>
+      </div>
+   }
+   
+   @if (_totalCountReviews > _reviewList.Count)
+   {
+      <div style="display: flex; justify-content: center;">
+         <button @onclick="GetNextDataReviewsAsync" class="btn">Показать ещё</button>
+      </div>
+   }
 </section>
 
 <section class="authors">
@@ -117,55 +106,175 @@
    <h1 class="title">Наши авторы</h1>
 
    <div class="box-container">
+      @foreach (var author in _authorList)
+      {
+         <div class="box">
+            <img src="@(ApplicationConstants.BackendAddress + author.PicturePath)" alt="">
+            <div class="share">
 
-      <div class="box">
-         <img src="./assets/images/author-1.jpg" alt="">
-         <div class="share">
-
+            </div>
+            <h3>@author.LastName @author.FirstName @author.MiddleName</h3>
          </div>
-         <h3>Александр Шпак</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/author-2.jpg" alt="">
-         <div class="share">
-
-         </div>
-         <h3>Оксана Сижулина</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/author-3.jpg" alt="">
-         <div class="share">
-
-         </div>
-         <h3>Петр Кировский</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/author-4.jpg" alt="">
-         <div class="share">
-
-         </div>
-         <h3>Адель Каитская</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/author-5.jpg" alt="">
-         <div class="share">
-
-         </div>
-         <h3>Михаил Кармов</h3>
-      </div>
-
-      <div class="box">
-         <img src="./assets/images/author-6.jpg" alt="">
-         <div class="share">
-
-         </div>
-         <h3>Виолета Сергеева</h3>
-      </div>
-
+      }
    </div>
-
+   @if (_isBusyAuthors)
+   {
+      <div  style="display: flex; justify-content: center;">
+         <div class="loader"></div>
+      </div>
+   }
+   
+   @if (_totalCountAuthors > _authorList.Count)
+   { 
+      <div style="display: flex; justify-content: center;">
+         <button @onclick="GetNextDataAuthorsAsync" class="btn">Показать ещё</button>
+      </div>
+   }
 </section>
+
+@code{
+
+   [Inject] IReviewManager ReviewManager { get; set; } = default!;
+   [Inject] IAuthorManager AuthorManager { get; set; } = default!;
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+
+
+   protected override async Task OnInitializedAsync()
+   {
+      await base.OnInitializedAsync();
+      await LoadDataReviewsAsync();
+      await LoadDataAuthorsAsync();
+   }
+
+   private bool _isBusyReviews;
+   private bool _isBusyAuthors;
+   private List<ReviewResponse> _reviewList = [];
+   private List<AuthorResponse> _authorList = [];
+
+   private int _pageNumberReviews = 1;
+   private int _pageSizeReviews = 6;
+
+   private int _totalCountReviews = 0;
+
+   private int _pageNumberAuthors = 1;
+   private int _pageSizeAuthors = 6;
+   
+   private int _totalCountAuthors = 0;
+
+   private async Task LoadDataReviewsAsync()
+   {
+      try
+      {
+         _isBusyReviews = true;
+
+         var result = await ReviewManager.GetPaginatedReviewsAsync(
+            _pageNumberReviews, _pageSizeReviews);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var review in result.Data.List)
+            _reviewList.Add(review);
+         _totalCountReviews = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusyReviews = false;
+      }
+   }
+
+   private async Task LoadDataAuthorsAsync()
+   {
+      try
+      {
+         _isBusyAuthors = true;
+         
+         var result = await AuthorManager.GetPaginatedAuthorsAsync(
+            _pageNumberAuthors, _pageSizeAuthors);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var author in result.Data.List)
+            _authorList.Add(author);
+         _totalCountAuthors = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusyAuthors = false;
+      }
+   }
+
+   private async Task GetNextDataReviewsAsync()
+   {
+      try
+      {
+         _isBusyReviews = true;
+
+         _pageNumberReviews += 1;
+         
+         var result = await ReviewManager.GetPaginatedReviewsAsync(
+            _pageNumberReviews, _pageSizeReviews);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var review in result.Data.List)
+            _reviewList.Add(review);
+         _totalCountReviews = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusyReviews = false;
+      }
+   }
+   
+   private async Task GetNextDataAuthorsAsync()
+   {
+      try
+      {
+         _isBusyAuthors = true;
+
+         _pageNumberAuthors += 1;
+
+         var result = await AuthorManager.GetPaginatedAuthorsAsync(
+            _pageNumberAuthors, _pageSizeAuthors);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var author in result.Data.List)
+            _authorList.Add(author);
+         _totalCountAuthors = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusyAuthors= false;
+      }
+   }
+
+}
