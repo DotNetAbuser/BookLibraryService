@@ -20,7 +20,7 @@ public class BookService(
                 Title: bookEntity.Title,
                 Description: bookEntity.Description,
                 Year: bookEntity.Year,
-                Count: bookEntity.Count)).ToList();
+                Quantity: bookEntity.Quantity)).ToList();
         return Result<PaginatedData<BookResponse>>
             .Success(new PaginatedData<BookResponse>(
                 List: booksResponse, TotalCount: totalCount), "Список книг успешно получен.");

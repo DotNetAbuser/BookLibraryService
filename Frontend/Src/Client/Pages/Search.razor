@@ -1,4 +1,5 @@
 ﻿@page "/search-page"
+@using Infrastructure.Constants
 
 <div class="heading">
    <h3>Поисковая страница</h3>
@@ -6,26 +7,160 @@
 </div>
 
 <section class="search-form">
-   <form action="" method="post">
-      <input type="text" name="search" placeholder="Поиск по названию или автору" class="box">
-      <input type="submit" name="submit" value="Поиск" class="btn">
-   </form>
+   <EditForm Model="_request" OnValidSubmit="SearchAsync">
+      <InputText @bind-Value="_request.SearchTerms" type="text" name="search" placeholder="Поиск по названию или автору" class="box"/>
+      <input type="submit" name="submit" class="btn" value="Поиск"/>
+   </EditForm>
 </section>
 
 <section class="products" style="padding-top: 0;">
    <div class="box-container">
-      @*<form action="" method="post" class="box">
-         <img src="ImageSource" alt="" class="image">
-         <div class="name">Name</div>
-         <div class="price">5</div>
-         <input type="number"  class="qty" name="product_quantity" min="1" value="1">
-         <input type="hidden" name="product_name" value="Name">
-         <input type="hidden" name="product_price" value="Price">
-         <input type="hidden" name="product_image" value="Image">
-         <input type="submit" class="btn" value="add to cart" name="add_to_cart">
-      </form>*@
       
-      <p class="empty">Здесь пока ничего нет!</p>
-
+      @foreach (var book in _bookList)
+      {
+         <div class="box">
+            <img src="@(ApplicationConstants.BackendAddress + book.PicturePath)" alt="" class="image">
+            <div class="name" style="min-height: 75px">@book.Title</div>
+            <div type="number"  class="qty" name="product_quantity">Кол-во свободных @book.Quantity</div>
+            @if (book.Quantity != 0)
+            {
+               <button class="btn">Взять в пользование</button>
+            }
+            else
+            {
+               <h3>В данный момент данная книга не доступна</h3>
+            }
+         </div>
+      }
+                 
+      @if (_bookList.Count == 0 && !string.IsNullOrWhiteSpace(_request.SearchTerms))
+      {
+         <p class="empty">Книги с ключивым словом '@_request.SearchTerms' не найдены!</p>
+      }
    </div>
+   @if (_isBusy) 
+   { 
+      <div style="display: flex; justify-content: center;">
+         <div class="loader"></div>
+      </div>
+   }
+   @if (_totalCount > _bookList.Count)
+   { 
+      <div style="display: flex; justify-content: center;">
+         <button @onclick="GetNextDataBooksAsync" class="btn">Показать ещё</button>
+      </div>
+   }
 </section>
+
+@code{
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] IBookManager BookManager { get; set; } = default!;
+
+   protected override async Task OnInitializedAsync()
+   {
+      await base.OnInitializedAsync();
+      await LoadDataBookAsync();
+   }
+
+   private bool _isBusy;
+   private List<BookResponse> _bookList = [];
+
+   private SearchBooksRequest _request = new();
+   private int _pageNumber = 1;
+   private int _pageSize = 6;
+   private int _totalCount = 0;
+
+   private async Task SearchAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         _bookList.Clear();
+         _totalCount = 0;
+         _pageNumber = 1;
+         
+         var result = await BookManager.GetPaginatedBooksAsync(
+            _pageNumber, _pageSize, _request.SearchTerms);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var author in result.Data.List)
+            _bookList.Add(author);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task LoadDataBookAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await BookManager.GetPaginatedBooksAsync(
+            _pageNumber, _pageSize, _request.SearchTerms);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var author in result.Data.List)
+            _bookList.Add(author);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task GetNextDataBooksAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         _pageNumber += 1;
+         
+         var result = await BookManager.GetPaginatedBooksAsync(
+            _pageNumber, _pageSize, _request.SearchTerms);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var author in result.Data.List)
+            _bookList.Add(author);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+
+
+
+}

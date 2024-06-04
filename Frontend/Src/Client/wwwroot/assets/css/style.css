@@ -397,6 +397,7 @@ section{
 
 .products .box-container .box .name{
    padding:1rem 0;
+   font-weight: 600;
    font-size: 2rem;
    color:var(--black);
 }

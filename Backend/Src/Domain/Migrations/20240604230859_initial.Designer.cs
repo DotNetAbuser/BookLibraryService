@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240604214800_initial")]
+    [Migration("20240604230859_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -63,7 +63,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2091),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9849),
                             FirstName = "Александр",
                             LastName = "Шпак",
                             MiddleName = "",
@@ -72,7 +72,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2106),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9860),
                             FirstName = "Оксана",
                             LastName = "Сижулина",
                             MiddleName = "",
@@ -81,7 +81,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2108),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9862),
                             FirstName = "Петр",
                             LastName = "Кировский",
                             MiddleName = "",
@@ -90,7 +90,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2110),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9864),
                             FirstName = "Адель",
                             LastName = "Каитская",
                             MiddleName = "",
@@ -99,7 +99,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 5,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2112),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9865),
                             FirstName = "Михаил",
                             LastName = "Кармов",
                             MiddleName = "",
@@ -108,7 +108,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 6,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2115),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9868),
                             FirstName = "Виолета",
                             LastName = "Сергеева",
                             MiddleName = "",
@@ -117,7 +117,7 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 7,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(2116),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(9869),
                             FirstName = "Азиз",
                             LastName = "Тураев",
                             MiddleName = "Автор",
@@ -134,9 +134,6 @@ namespace Domain.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Count")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("timestamp with time zone");
 
@@ -150,6 +147,9 @@ namespace Domain.Migrations
                     b.Property<string>("PicturePath")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -171,6 +171,212 @@ namespace Domain.Migrations
                         .IsUnique();
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("02d13e34-d450-4498-b8fe-1a2cb20d103f"),
+                            AuthorId = 2,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4189),
+                            Description = "Баш и Люси описание",
+                            GenreId = 1,
+                            PicturePath = "Files//Images//BookPictures//1.jpg",
+                            Quantity = 3,
+                            Title = "Баш и Люси",
+                            Year = 1990
+                        },
+                        new
+                        {
+                            Id = new Guid("a6e33b25-ac4a-4d68-9ef2-cf168ac1e633"),
+                            AuthorId = 2,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4214),
+                            Description = "Будь здорова пчелка описание",
+                            GenreId = 1,
+                            PicturePath = "Files//Images//BookPictures//2.jpg",
+                            Quantity = 2,
+                            Title = "Будь здорова пчелка",
+                            Year = 1995
+                        },
+                        new
+                        {
+                            Id = new Guid("835ba0d7-a821-4f0a-a47a-ddd2f3d97104"),
+                            AuthorId = 4,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4218),
+                            Description = "Скучные девчонки описание",
+                            GenreId = 6,
+                            PicturePath = "Files//Images//BookPictures//3.jpg",
+                            Quantity = 10,
+                            Title = "Скучные девчонки",
+                            Year = 2001
+                        },
+                        new
+                        {
+                            Id = new Guid("6167e0ae-4fcd-4f72-81b0-d679e115f310"),
+                            AuthorId = 5,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4221),
+                            Description = "умные земли описание",
+                            GenreId = 7,
+                            PicturePath = "Files//Images//BookPictures//4.jpg",
+                            Quantity = 12,
+                            Title = "Умные земли",
+                            Year = 2005
+                        },
+                        new
+                        {
+                            Id = new Guid("fc527fe1-7228-455e-bef5-73091c5940bb"),
+                            AuthorId = 6,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4224),
+                            Description = "Темная сторона интернета описание",
+                            GenreId = 8,
+                            PicturePath = "Files//Images//BookPictures//5.jpg",
+                            Quantity = 10,
+                            Title = "Темная сторона интернета",
+                            Year = 2012
+                        },
+                        new
+                        {
+                            Id = new Guid("c62dae1e-7368-4d78-84ce-95b2723f0884"),
+                            AuthorId = 1,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4228),
+                            Description = "Экономика агропромышленности описание",
+                            GenreId = 8,
+                            PicturePath = "Files//Images//BookPictures//6.jpg",
+                            Quantity = 1,
+                            Title = "Экономика агропромышленности",
+                            Year = 2000
+                        },
+                        new
+                        {
+                            Id = new Guid("1bdb5972-46cc-4c27-a5dc-59f0dc5aa0dc"),
+                            AuthorId = 6,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4230),
+                            Description = "Свободное падение описание",
+                            GenreId = 6,
+                            PicturePath = "Files//Images//BookPictures//7.jpg",
+                            Quantity = 6,
+                            Title = "Свободное падение",
+                            Year = 2009
+                        },
+                        new
+                        {
+                            Id = new Guid("f5b4baae-92e5-4a64-bc5d-162f087023eb"),
+                            AuthorId = 1,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4240),
+                            Description = "Современная архитектура зданий описание",
+                            GenreId = 8,
+                            PicturePath = "Files//Images//BookPictures//8.jpg",
+                            Quantity = 4,
+                            Title = "Современная архитектура зданий",
+                            Year = 2018
+                        },
+                        new
+                        {
+                            Id = new Guid("88d551bd-8ff9-4e5c-88ad-4fa4b6d5a7a7"),
+                            AuthorId = 7,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4243),
+                            Description = "Святой дух описание",
+                            GenreId = 9,
+                            PicturePath = "Files//Images//BookPictures//9.jpg",
+                            Quantity = 0,
+                            Title = "Святой дух",
+                            Year = 2001
+                        },
+                        new
+                        {
+                            Id = new Guid("f2d4027c-9e6e-4755-ab0f-5154d1d36b41"),
+                            AuthorId = 2,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4247),
+                            Description = "Апокалипсис Ллойда описание",
+                            GenreId = 10,
+                            PicturePath = "Files//Images//BookPictures//10.jpg",
+                            Quantity = 1,
+                            Title = "Апокалипсис Ллойда",
+                            Year = 2019
+                        },
+                        new
+                        {
+                            Id = new Guid("ad97e8ae-ecb4-495b-837a-cbb5cdba4d0d"),
+                            AuthorId = 1,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4249),
+                            Description = "Ночная тень описание",
+                            GenreId = 6,
+                            PicturePath = "Files//Images//BookPictures//11.jpg",
+                            Quantity = 9,
+                            Title = "Ночная тень",
+                            Year = 2010
+                        },
+                        new
+                        {
+                            Id = new Guid("576c0c85-9650-447f-8027-d484b4384e85"),
+                            AuthorId = 6,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4252),
+                            Description = "Радикальное садоводство описание",
+                            GenreId = 8,
+                            PicturePath = "Files//Images//BookPictures//12.jpg",
+                            Quantity = 1,
+                            Title = "Радикальное садоводство",
+                            Year = 2010
+                        },
+                        new
+                        {
+                            Id = new Guid("7ce0c205-63d9-45a2-b00c-8dbeba546359"),
+                            AuthorId = 2,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4255),
+                            Description = "Красная королева описание",
+                            GenreId = 9,
+                            PicturePath = "Files//Images//BookPictures//13.jpg",
+                            Quantity = 10,
+                            Title = "Красная королева",
+                            Year = 2017
+                        },
+                        new
+                        {
+                            Id = new Guid("083a377b-b4fe-49cb-91fa-e2bec94b9147"),
+                            AuthorId = 7,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4259),
+                            Description = "Разбитый описание",
+                            GenreId = 2,
+                            PicturePath = "Files//Images//BookPictures//14.jpg",
+                            Quantity = 3,
+                            Title = "Разбитый",
+                            Year = 2011
+                        },
+                        new
+                        {
+                            Id = new Guid("657fe962-fedb-4461-83e3-f8c489aff837"),
+                            AuthorId = 2,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4262),
+                            Description = "",
+                            GenreId = 3,
+                            PicturePath = "Files//Images//BookPictures//15.jpg",
+                            Quantity = 8,
+                            Title = "Девушки чернил и звёзд",
+                            Year = 2013
+                        },
+                        new
+                        {
+                            Id = new Guid("d5d3037c-73f5-4981-be13-15763b6a1ef5"),
+                            AuthorId = 7,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4267),
+                            Description = "Счастливый лимон описание",
+                            GenreId = 1,
+                            PicturePath = "Files//Images//BookPictures//16.jpg",
+                            Quantity = 12,
+                            Title = "Счастливый лимон",
+                            Year = 2000
+                        },
+                        new
+                        {
+                            Id = new Guid("5c849de3-9761-4073-97ee-61d137b6b7d1"),
+                            AuthorId = 4,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(4270),
+                            Description = "Мир абстрактных цветов!",
+                            GenreId = 8,
+                            PicturePath = "Files//Images//BookPictures//17.jpg",
+                            Quantity = 0,
+                            Title = "Мир абстрактных цветов",
+                            Year = 2020
+                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.GenreEntity", b =>
@@ -202,32 +408,62 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(9514),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7660),
                             Name = "Сказки"
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(9523),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7671),
                             Name = "Детектив"
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(9525),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7672),
                             Name = "Роман"
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(9526),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7674),
                             Name = "Комедия"
                         },
                         new
                         {
                             Id = 5,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(9528),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7675),
                             Name = "Драма"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7678),
+                            Name = "Новелла"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7679),
+                            Name = "Бизнес"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7680),
+                            Name = "Образование"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7681),
+                            Name = "Мистика"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(7683),
+                            Name = "Черный юмор"
                         });
                 });
 
@@ -298,25 +534,25 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(9269),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(6665),
                             Name = "Ожидает получения"
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(9279),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(6714),
                             Name = "Взята в пользование"
                         },
                         new
                         {
                             Id = 3,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(9281),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(6716),
                             Name = "Ожидает возврата"
                         },
                         new
                         {
                             Id = 4,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 843, DateTimeKind.Utc).AddTicks(9282),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 955, DateTimeKind.Utc).AddTicks(6717),
                             Name = "Закрыта"
                         });
                 });
@@ -352,49 +588,49 @@ namespace Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("80d88135-2b4d-44b5-8bc8-45e017ddc7d5"),
+                            Id = new Guid("15271d4f-e666-4b9f-a64f-77ac12590a99"),
                             Content = "Брал книгу в аренду на 1 месяц, после чего продлил еще на один, остался очень доволен!",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1820),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(157),
                             Grade = 5,
                             UserId = new Guid("cdc4a3b4-125f-47f6-8a26-99d057c47d5b")
                         },
                         new
                         {
-                            Id = new Guid("cd5f9608-2cba-4a48-b93d-d9decb7d0e96"),
+                            Id = new Guid("672a081a-9a61-483d-aaa8-22df02796e6f"),
                             Content = "Взяла на 2 недели сказку, Репка мне очень понравилась.",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1891),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(231),
                             Grade = 5,
                             UserId = new Guid("7e47a9d9-c095-4cfc-bd5d-4d5428b760e5")
                         },
                         new
                         {
-                            Id = new Guid("c98f6c30-4bcf-412b-a0ae-dd63ff9bfbde"),
+                            Id = new Guid("f7248545-7ee2-4a5c-b06a-83bee9dd4efc"),
                             Content = "Брал повесть о похождениях Петра Великого очень понравился рекомендую!",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1896),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(236),
                             Grade = 4,
                             UserId = new Guid("08278464-1115-440e-b6ab-5f70d77db79d")
                         },
                         new
                         {
-                            Id = new Guid("5f48896f-07d7-49da-98a5-220ec0eb179b"),
+                            Id = new Guid("4a2ddcf2-41a4-4629-90c5-56c56d7b4453"),
                             Content = "Пользуюсь услугами этой организации уже 2 года очень довольна, всегда есть что взять почитать!",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1899),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(329),
                             Grade = 5,
                             UserId = new Guid("2f25fde8-c877-407c-adc9-cad036363c53")
                         },
                         new
                         {
-                            Id = new Guid("822b6229-551f-4f61-aa4f-46713557a360"),
+                            Id = new Guid("d21ad6fc-cbb8-4be1-bbf7-01638551906d"),
                             Content = "Брал для учебы учебник по математике 11 класс, смогу подготовиться к ЕГЭ и сдал его на 82 балла, очень благодарен",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1903),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(334),
                             Grade = 4,
                             UserId = new Guid("da9b2344-4237-4868-ad78-5e1e35a467fe")
                         },
                         new
                         {
-                            Id = new Guid("dde79b77-dd70-4199-b976-26d5d32f7515"),
+                            Id = new Guid("cc830007-b62f-4804-ad28-825edea71bb2"),
                             Content = "Читаю каждый день, по 5 часов в день, очень благодарна данному проекта моего знакомого-друга Азиза!",
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 842, DateTimeKind.Utc).AddTicks(1906),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 954, DateTimeKind.Utc).AddTicks(356),
                             Grade = 5,
                             UserId = new Guid("85e3c09a-fa0c-4499-97c8-64644e588023")
                         });
@@ -429,13 +665,13 @@ namespace Domain.Migrations
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 58, 637, DateTimeKind.Utc).AddTicks(9407),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 57, 742, DateTimeKind.Utc).AddTicks(5951),
                             Name = "Гость"
                         },
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2024, 6, 4, 21, 47, 58, 637, DateTimeKind.Utc).AddTicks(9413),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 57, 742, DateTimeKind.Utc).AddTicks(5957),
                             Name = "Админ"
                         });
                 });
@@ -517,20 +753,20 @@ namespace Domain.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3b21d68f-38ed-477f-9978-cf82e7aa0cf7"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 58, 638, DateTimeKind.Utc).AddTicks(5398),
+                            Id = new Guid("c10ccde9-33f3-4ecb-9070-1f7c1d3b3f7e"),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 57, 743, DateTimeKind.Utc).AddTicks(2266),
                             Email = "aziz_guest@gmail.com",
-                            PasswordHash = "$2a$11$vNV5saU9cue78kQwiErK2eV20Py7JkzCoyl98W.lkspc5IxV6Dmpm",
+                            PasswordHash = "$2a$11$TWJJo6wjRtEueFY7gAiQQeQhgNaOijIpB1zX0wrks/37zxmM9Kgl2",
                             PicturePath = "Files//Images//ProfilePictures//7.jpg",
                             RoleId = 2,
                             Username = "aziz_guest"
                         },
                         new
                         {
-                            Id = new Guid("62ebe9ad-042f-4488-a22d-142a6d2b2512"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 58, 788, DateTimeKind.Utc).AddTicks(196),
+                            Id = new Guid("142821dd-b1f5-4e19-8ab3-c89428c1b143"),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 57, 892, DateTimeKind.Utc).AddTicks(9463),
                             Email = "aziz_admin@gmail.com",
-                            PasswordHash = "$2a$11$Xvfs1KIZ3/ZL9Hkgivy3b.zOl1hk0KxZlVFpLXdlzKyjshH8biFrq",
+                            PasswordHash = "$2a$11$qqqkhujKl3Z81qeWcS256.Ted7u.cj/H2BStMG/UOixdgSjZdVwbO",
                             PicturePath = "Files//Images//ProfilePictures//7.jpg",
                             RoleId = 1,
                             Username = "aziz_admin"
@@ -538,9 +774,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("cdc4a3b4-125f-47f6-8a26-99d057c47d5b"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 58, 939, DateTimeKind.Utc).AddTicks(2384),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 44, DateTimeKind.Utc).AddTicks(6290),
                             Email = "amir_guest@gmail.com",
-                            PasswordHash = "$2a$11$py/KAjenZzpQLTYIm8E6C..7lq7RheGudfJlfVn6F/rBL0y4z7OlO",
+                            PasswordHash = "$2a$11$F9VvALoH64YZbmb6B0Ddxed//TS6lxjUgNopFhRVOEOjU/kEIGuhi",
                             PicturePath = "Files//Images//ProfilePictures//1.png",
                             RoleId = 2,
                             Username = "amir_hairulin"
@@ -548,9 +784,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("7e47a9d9-c095-4cfc-bd5d-4d5428b760e5"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 88, DateTimeKind.Utc).AddTicks(6452),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 194, DateTimeKind.Utc).AddTicks(1658),
                             Email = "adel_guest@gmail.com",
-                            PasswordHash = "$2a$11$xq1HBSfoMQjWSJurCxU7NO8Xi.6lmzTbhY02oc44fYM7BK5HVw3AO",
+                            PasswordHash = "$2a$11$V18lehEFFzynRqTtftLMZe20CO/jzWzBMsBYKwUC/0qo.NdDSDsOK",
                             PicturePath = "Files//Images//ProfilePictures//2.png",
                             RoleId = 2,
                             Username = "adel_shpahina"
@@ -558,9 +794,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("08278464-1115-440e-b6ab-5f70d77db79d"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 238, DateTimeKind.Utc).AddTicks(7039),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 346, DateTimeKind.Utc).AddTicks(1768),
                             Email = "bulat_guest@gmail.com",
-                            PasswordHash = "$2a$11$17QMNnwiHbQJP0KHvt4vxeVfyqb./wKQKtiKnxOfNgvra5hSkexa2",
+                            PasswordHash = "$2a$11$/atflsAIHYtzj.Slm.ZOh.0I0CPWUqmlsVSLP2hm8AddPi5Yd51tK",
                             PicturePath = "Files//Images//ProfilePictures//3.png",
                             RoleId = 2,
                             Username = "bulat_zakirov"
@@ -568,9 +804,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("2f25fde8-c877-407c-adc9-cad036363c53"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 393, DateTimeKind.Utc).AddTicks(4553),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 501, DateTimeKind.Utc).AddTicks(3272),
                             Email = "ilsia_guest@gmail.com",
-                            PasswordHash = "$2a$11$HpQNNyCU3rmKxzOLtAmayOucgsoI5ITlR8Mg31QsWtQG1jU96usEq",
+                            PasswordHash = "$2a$11$pK2.5g68QezDI6jY0df61uvDLEEJ7y17GpNMb7kbi4SIcC0HNxrFy",
                             PicturePath = "Files//Images//ProfilePictures//4.png",
                             RoleId = 2,
                             Username = "ilsia_iabarova"
@@ -578,9 +814,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("da9b2344-4237-4868-ad78-5e1e35a467fe"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 542, DateTimeKind.Utc).AddTicks(7443),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 654, DateTimeKind.Utc).AddTicks(4734),
                             Email = "serega_guest@gmail.com",
-                            PasswordHash = "$2a$11$TZ0Zu1iYDcjGKhD11RdqTe385n7yl8zNFyxBdJLTyPOIx.GHCiWi2",
+                            PasswordHash = "$2a$11$tNvaYGZIWrKfv3bHb1ERke7pxus3/O2IMCo8hd6TIxKn9nL/cKDs6",
                             PicturePath = "Files//Images//ProfilePictures//5.png",
                             RoleId = 2,
                             Username = "serega_michurin"
@@ -588,9 +824,9 @@ namespace Domain.Migrations
                         new
                         {
                             Id = new Guid("85e3c09a-fa0c-4499-97c8-64644e588023"),
-                            Created = new DateTime(2024, 6, 4, 21, 47, 59, 692, DateTimeKind.Utc).AddTicks(1805),
+                            Created = new DateTime(2024, 6, 4, 23, 8, 58, 803, DateTimeKind.Utc).AddTicks(7147),
                             Email = "maria_guest@gmail.com",
-                            PasswordHash = "$2a$11$VjQRg32r7k5UG8Cnd1hHn..GAmtiSRvS4SzJGxQwrD8Ch6R.SkcmC",
+                            PasswordHash = "$2a$11$qL8duVsEHM6Q9KGgNlnb6e/vIaZv6WZYIiZlok/D6.3chWVrHy9OG",
                             PicturePath = "Files//Images//ProfilePictures//6.png",
                             RoleId = 2,
                             Username = "maria_utiasova"

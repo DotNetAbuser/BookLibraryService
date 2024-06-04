@@ -7,12 +7,12 @@ public class ReviewRepository(
     public async Task<PaginatedData<ReviewEntity>> GetPaginatedReviewsAsync(int pageNumber, int pageSize)
     {
         var getListQuery = dbContext.Reviews
-            .AsNoTracking();
+            .AsNoTracking()
+            .OrderByDescending(x => x.Created);
         var countQuery = dbContext.Reviews
             .AsNoTracking();
         
         var list = await getListQuery
-            .OrderByDescending(x => x.Created)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .Include(x => x.User)

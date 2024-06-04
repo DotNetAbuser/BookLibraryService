@@ -8,6 +8,7 @@ public class BookRepository(
         int pageNumber, int pageSize, string? searchTerms)
     {
         var getListQuery = dbContext.Books
+            .OrderByDescending(x => x.Created)
             .AsNoTracking();
         var countQuery = dbContext.Books
             .AsNoTracking();

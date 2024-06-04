@@ -10,4 +10,4 @@ public record BookResponse(
     string Title,
     string Description,
     int Year,
-    int Count);
+    int Quantity);

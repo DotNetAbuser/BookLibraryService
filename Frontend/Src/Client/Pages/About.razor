@@ -40,46 +40,11 @@
             <img src="@(ApplicationConstants.BackendAddress + review.UserPicturePath)" alt="">
             <p>@review.Content</p>
             <div class="stars">
-               @if (review.Grade >= 1)
-               {
-                  <i class="fas fa-star"></i>
-               }
-               else
-               {
-                  <i class="far fa-star"></i>
-               }
-               @if (review.Grade >= 2)
-               {
-                  <i class="fas fa-star"></i>
-               }
-               else
-               {
-                  <i class="far fa-star"></i>
-               }
-               @if (review.Grade >= 3)
-               {
-                  <i class="fas fa-star"></i>
-               }
-               else
-               {
-                  <i class="far fa-star"></i>
-               }
-               @if (review.Grade >= 4)
-               {
-                  <i class="fas fa-star"></i>
-               }
-               else
-               {
-                  <i class="far fa-star"></i>
-               }
-               @if (review.Grade >= 5)
-               {
-                  <i class="fas fa-star"></i>
-               }
-               else
-               {
-                  <i class="far fa-star"></i>
-               }
+               <i class="@(review.Grade < 1 ? "far fa-star" : "fas fa-star")"></i>
+               <i class="@(review.Grade < 2 ? "far fa-star" : "fas fa-star")"></i>
+               <i class="@(review.Grade < 3 ? "far fa-star" : "fas fa-star")"></i>
+               <i class="@(review.Grade < 4 ? "far fa-star" : "fas fa-star")"></i>
+               <i class="@(review.Grade < 5 ? "far fa-star" : "fas fa-star")"></i>
             </div>
             <h3>@review.Username</h3>
          </div>

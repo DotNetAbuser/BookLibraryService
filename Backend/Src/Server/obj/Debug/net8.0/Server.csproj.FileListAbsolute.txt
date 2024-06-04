@@ -219,6 +219,7 @@ C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\Server.csproj.CoreCompileInputs.cache
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\Server.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\Server.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\Server.sourcelink.json
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ilyao\Desktop\Projects\BookLibraryService\Backend\Src\Server\obj\Debug\net8.0\staticwebassets\msbuild.Server.Microsoft.AspNetCore.StaticWebAssets.props

@@ -21,34 +21,6 @@
       "PackagePath": "staticwebassets\\assets\\images\\about-img.jpg"
     },
     {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\bash_and_lucy-2.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\bash_and_lucy-2.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\be_well_bee.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\be_well_bee.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\boring_girls_a_novel.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\boring_girls_a_novel.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\clever_lands.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\clever_lands.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\darknet.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\darknet.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\economic.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\economic.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\freefall.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\freefall.jpg"
-    },
-    {
       "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\heading-bg.webp",
       "PackagePath": "staticwebassets\\assets\\images\\heading-bg.webp"
     },
@@ -57,48 +29,12 @@
       "PackagePath": "staticwebassets\\assets\\images\\history_of_modern_architecture.jpg"
     },
     {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\holy_ghosts.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\holy_ghosts.jpg"
-    },
-    {
       "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\home-bg.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\home-bg.jpg"
     },
     {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\lloyd.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\lloyd.jpg"
-    },
-    {
       "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\loader-img.gif",
       "PackagePath": "staticwebassets\\assets\\images\\loader-img.gif"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\nightshade.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\nightshade.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\radical_gardening.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\radical_gardening.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\red_queen.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\red_queen.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\shattered.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\shattered.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_girl_of_ink_and_stars.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\the_girl_of_ink_and_stars.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_happy_lemon.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\the_happy_lemon.jpg"
-    },
-    {
-      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\the_world.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\the_world.jpg"
     },
     {
       "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\index.html",

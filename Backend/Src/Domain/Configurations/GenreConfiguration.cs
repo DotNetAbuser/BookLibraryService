@@ -41,6 +41,31 @@ public class GenreConfiguration
             {
                 Id = 5,
                 Name = "Драма"
+            },
+            new()
+            {
+                Id = 6,
+                Name = "Новелла"
+            },
+            new()
+            {
+                Id = 7,
+                Name = "Бизнес"
+            },
+            new()
+            {
+                Id = 8,
+                Name = "Образование"
+            },
+            new()
+            {
+                Id = 9,
+                Name = "Мистика"
+            },
+            new()
+            {
+                Id = 10,
+                Name = "Черный юмор"
             }
         });
     }
