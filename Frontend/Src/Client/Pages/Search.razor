@@ -1,5 +1,4 @@
 ﻿@page "/search-page"
-@using Infrastructure.Constants
 
 <div class="heading">
    <h3>Поисковая страница</h3>
@@ -21,14 +20,15 @@
          <div class="box">
             <img src="@(ApplicationConstants.BackendAddress + book.PicturePath)" alt="" class="image">
             <div class="name" style="min-height: 75px">@book.Title</div>
+            <div class="box"><h2>Жанр: @book.Genre</h2></div>
             <div type="number"  class="qty" name="product_quantity">Кол-во свободных @book.Quantity</div>
             @if (book.Quantity != 0)
             {
-               <button class="btn">Взять в пользование</button>
+               <a href="/create-order/@book.Id" class="btn">Взять в пользование</a>
             }
             else
             {
-               <h3>В данный момент данная книга не доступна</h3>
+               <h2>В данный момент данная книга не доступна</h2>
             }
          </div>
       }
