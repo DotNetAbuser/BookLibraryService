@@ -41,4 +41,26 @@ public class BookRepository(
         return new PaginatedData<BookEntity>(
             List: list, TotalCount: totalCount);
     }
+
+    public async Task<BookEntity?> GetByIdWithIncludesAsync(Guid id)
+    {
+        return await dbContext.Books
+            .AsNoTracking()
+            .Include(x => x.Author)
+            .Include(x => x.Genre)
+            .SingleOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task<BookEntity?> GetByIdAsync(Guid id)
+    {
+        return await dbContext.Books
+            .AsNoTracking()
+            .SingleOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task UpdateAsync(BookEntity entity)
+    {
+        dbContext.Books.Update(entity);
+        await dbContext.SaveChangesAsync();
+    }
 }

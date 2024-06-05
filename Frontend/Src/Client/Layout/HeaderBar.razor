@@ -85,11 +85,8 @@
             : UserBtnInactiveClass;
     }
 
-    private async Task SignOut()
-    {
-        await CustomAuthStateProvider.MarkUserAsLoggedOut();
-        NavigationManager.NavigateTo("/", true, true);
-    }
+    private async Task SignOut() => await CustomAuthStateProvider.MarkUserAsLoggedOut();
+    
  
 
 }

@@ -13,51 +13,119 @@
 
    <div class="box-container">
       
-      <div class="box">
-         <p> Взята в пользование с : <span>02.06.2023 10:11</span> </p>
-         <p> Нужно будет вернуть до : <span>10.06.2023 10:11</span> </p>
-         <p> Имя на кого взята книга : <span>Азиз</span> </p>
-         <p> Ваш номер телефона : <span>+79177793607</span> </p>
-         <p> Статус :<span> Ожидает получения </span> </p>
-         <button class="btn delete-btn">Отменить</button>
-         <button class="btn">Продлить</button>
-      </div>
+      @foreach (var order in _ordersList)
+      {
+         <div class="box">
+            <p> Взята в пользование с : <span>@order.TakenFrom.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>
+            <p> Нужно будет вернуть до : <span>@order.TakenTo.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>
+            <p> Имя пользователя на кого взята книга : <span>@order.Username</span> </p>
+            <p> Статус :<span> @order.Status </span> </p>
+            <p> Создано : <span> @order.Created.ToLocalTime().ToString("dd.MM.yyyy HH:mm") </span></p>
+            @*<button class="btn delete-btn">Отменить</button>
+            <button class="btn">Продлить</button>*@
+         </div>
+      }
       
-      <div class="box">
-         <p> Взята в пользование с : <span>01.06.2023 10:11</span> </p>
-         <p> Нужно будет вернуть до : <span>07.06.2023 10:11</span> </p>
-         <p> Имя на кого взята книга : <span>Азиз</span> </p>
-         <p> Ваш номер телефона : <span>+79177793607</span> </p>
-         <p> Статус :<span> Закрыта </span> </p>
-         <button class="btn delete-btn">Отменить</button>
-         <button class="btn">Продлить</button>
-      </div>
-      
-      <div class="box">
-         <p> Взята в пользование с : <span>20.05.2023 10:11</span> </p>
-         <p> Нужно будет вернуть до : <span>29.06.2023 10:11</span> </p>
-         <p> Имя на кого взята книга : <span>Азиз</span> </p>
-         <p> Ваш номер телефона : <span>+79177793607</span> </p>
-         <p> Статус :<span> Взята в аренду </span> </p>
-         <button class="btn delete-btn">Отменить</button>
-         <button class="btn">Продлить</button>
-      </div>
-      
-      <div class="box">
-         <p> Взята в пользование с : <span>03.06.2023 10:11</span> </p>
-         <p> Нужно будет вернуть до : <span>10.06.2023 10:11</span> </p>
-         <p> Имя на кого взята книга : <span>Азиз</span> </p>
-         <p> Ваш номер телефона : <span>+79177793607</span> </p>
-         <p> Статус :<span> Ожидает возврата </span> </p>
-         <button class="btn delete-btn">Отменить</button>
-         <button class="btn">Продлить</button>
-      </div>
-      
-      
-      
-      @*
-      <p class="empty">no orders placed yet!</p>
-   *@
+      @if (!_isBusy && _ordersList.Count == 0)
+      {
+         <p class="empty">Вы ещё не брали ни одной книги!</p>
+      }
+
    </div>
+   
+      @if (_totalCount > _ordersList.Count)
+      {
+         <div style="display: flex; justify-content: center;">
+            <button @onclick="GetNextDataMyOrdersAsync" class="btn">Показать ещё</button>
+         </div>
+      }
+   
+   @if (_isBusy) 
+   {
+      <div style="display: flex; justify-content: center;">
+         <div class="loader"></div>
+      </div>
+   }
 
 </section>
+
+@code{
+
+   [Inject] IOrderManager OrderManager { get; set; } = default!;
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+   private bool _isBusy;
+   private List<OrderResponse> _ordersList = [];
+
+   private int _pageNumber = 1;
+   private int _pageSize = 6;
+
+   private int _totalCount;
+   
+   
+   protected override async Task OnInitializedAsync()
+   {
+      await base.OnInitializedAsync();
+      await LoadDataMyOrdersAsync();
+   }
+
+   private async Task LoadDataMyOrdersAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await OrderManager.GetPaginatedMyOrdersAsync(_pageNumber, _pageSize);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         foreach (var order in result.Data.List)
+            _ordersList.Add(order);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task GetNextDataMyOrdersAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         _pageNumber += 1;
+         
+         var result = await OrderManager.GetPaginatedMyOrdersAsync(_pageNumber, _pageSize);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         foreach (var order in result.Data.List)
+            _ordersList.Add(order);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+}

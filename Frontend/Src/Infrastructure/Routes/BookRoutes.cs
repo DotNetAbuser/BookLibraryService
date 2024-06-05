@@ -10,4 +10,6 @@ public static class BookRoutes
             $"?pageNumber={pageNumber}" +
             $"&pageSize={pageSize}" +
             $"&searchTerms={searchTerms}";
+
+    public static string? GetById(Guid id) => BaseUrl + $"/{id}";
 }

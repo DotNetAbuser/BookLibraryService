@@ -864,7 +864,25 @@ section{
 
 
 
+.create-request{
+   display: grid;
+   grid-template-columns: 0.5fr 1fr;
+}
 
+.create-request .info{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 10px;
+}
+
+.create-request .info .name{
+   font-size: 30px;
+}
+
+.create-request .form-container form{
+   
+}
 
 
 
@@ -933,6 +951,12 @@ section{
       font-size: 55%;
    }
 
+   .create-request{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      
+   }
 }
 
 @media (max-width:768px){

@@ -4,14 +4,24 @@
         <a href="home">Главная</a>
         <a href="about">О нас</a>
         <a href="catalog">Каталог</a>
-        <a href="review">Оставить отзыв</a>
+        <AuthorizeView>
+            <Authorized>
+                <a href="review">Оставить отзыв</a>
+                <a href="orders">Заказы</a>
+            </Authorized>
+        </AuthorizeView>
     </div>
 
-    <div class="box">
-        <h3>Доп. ссылки</h3>
-        <a href="sign-in">Войти</a>
-        <a href="sign-up">Регистрация</a>
-    </div>
+    <AuthorizeView>
+        <NotAuthorized>
+            <div class="box">
+                <h3>Доп. ссылки</h3>
+                <a href="sign-in">Войти</a>
+                <a href="sign-up">Регистрация</a>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+
 
     <div class="box">
         <h3>Контактная информация</h3>

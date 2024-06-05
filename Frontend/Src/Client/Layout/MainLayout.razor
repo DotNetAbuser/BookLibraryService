@@ -1,19 +1,22 @@
 ﻿@inherits LayoutComponentBase
 
 <CascadingAuthenticationState>
-    <header class="header">
-        <HeaderBar/>
-    </header>
+    <CascadingBlazoredModal DisableBackgroundCancel="true">
 
-    <main>
-        <article>
-            @Body
-        </article>
-    </main>
+        <header class="header">
+            <HeaderBar/>
+        </header>
 
-    <section class="footer">
-        <FooterBar/>
-    </section>
+        <main>
+            <article>
+                @Body
+            </article>
+        </main>
+
+        <section class="footer">
+            <FooterBar/>
+        </section>
+    </CascadingBlazoredModal>
 </CascadingAuthenticationState>
 
 @code{

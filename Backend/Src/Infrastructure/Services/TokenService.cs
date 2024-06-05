@@ -10,7 +10,7 @@ public class TokenService(
     {
         var userEntity = await userRepository.GetByUsernameWithRoleAsync(request.Username);
         if (userEntity == null)
-            return Result<SignInResponse>.Fail("Пользователь с данным номером телефона не найден!");
+            return Result<SignInResponse>.Fail("Пользователь с данным именем не найден!");
 
         var isPasswordVerify = BCrypt.Net.BCrypt.EnhancedVerify(request.Password, userEntity.PasswordHash);
         if (!isPasswordVerify)

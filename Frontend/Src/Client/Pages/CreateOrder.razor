@@ -1,0 +1,109 @@
+﻿@page "/create-order/{BookId:guid}"
+
+@attribute [Authorize]
+
+<section class="create-request">
+    @if (!_isBusy && _model != null)
+    {
+        <div class="info">
+            <div class="name">Выбранна книга: @_model.Title </div>
+            <img src="@(ApplicationConstants.BackendAddress + _model.PicturePath)" alt="" class="image"/>
+        </div>
+        
+        <div class="form-container">
+            
+            <EditForm Model="_request" OnValidSubmit="SubmitFormAsync">
+                <h3>Оформление книги</h3>
+                <DataAnnotationsValidator/>
+                <InputDate @bind-Value="_request.TakenFrom" class="box"/>
+                <InputDate @bind-Value="_request.TakenTo" class="box"/>
+
+                <input type="submit" value="Взять в пользование!" name="send-message" class="btn">
+                <ValidationSummary/>
+            </EditForm>
+        </div>
+    }
+    else
+    {
+        <div style="display: flex; justify-content: center; grid-column: span">
+            <div class="loader"></div>
+        </div>
+    }
+    
+</section>
+
+@code {
+
+    [Parameter] public Guid BookId { get; set; } = default!;
+    
+    [Inject] IOrderManager OrderManager { get; set; } = default!;
+    [Inject] IBookManager BookManager { get; set; } = default!;
+    [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+        await LoadDataBookAsync();
+        _request.BookId = BookId;
+    }
+
+    private BookResponse? _model;
+    
+    private bool _isBusy;
+    private CreateOrderRequest _request = new();
+    
+    private async Task SubmitFormAsync()
+    {
+        try
+        {
+            _isBusy = true;
+
+            var result = await OrderManager.CreateAsync(_request);
+            if (!result.Succeeded)
+            {
+                foreach (var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+            foreach (var message in result.Messages)
+                await JsRuntime.InvokeVoidAsync("alert", message);
+            NavigationManager.NavigateTo(NavigationManager.BaseUri, true,true);
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+
+    private async Task LoadDataBookAsync()
+    {
+        try
+        {
+            _isBusy = true;
+
+            var result = await BookManager.GetByIdAsync(BookId);
+            if (!result.Succeeded)
+            {
+                foreach (var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+
+            _model = result.Data;
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+
+}

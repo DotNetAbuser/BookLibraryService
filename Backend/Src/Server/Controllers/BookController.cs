@@ -13,4 +13,10 @@ public class BookController(
         return Ok(await bookService.GetPaginatedBooksAsync(
             pageNumber, pageSize, searchTerms));
     }
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetByIdAsync(Guid id)
+    {
+        return Ok(await bookService.GetByIdAsync(id));
+    }
 }
