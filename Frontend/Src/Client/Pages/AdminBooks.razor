@@ -178,11 +178,11 @@
    
    private async Task UpdateBookLoadFileAsync(InputFileChangeEventArgs e)
    {
+      if (e.FileCount != 0)
+      {
          var ms = new MemoryStream();
          await e.File.OpenReadStream().CopyToAsync(ms);
-      
-         await JsRuntime.InvokeVoidAsync("alert", "2");
-
+         
          _updateBookRequest.BookPictureRequest = new UploadRequest
          {
             FileName = e.File.Name,
@@ -190,8 +190,7 @@
             UploadType = UploadType.BookPicture,
             Data = ms.ToArray()
          };
-         await JsRuntime.InvokeVoidAsync("alert", "2");
-
+      }
    }
 
    private async Task LoadDataAuthorsAsync()
