@@ -19,7 +19,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwagger();
 builder.Services.AddControllers();
 
-builder.Services.AddCors();
+builder.Services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()));     
 
 var app = builder.Build();
 
@@ -38,11 +40,11 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true) // allow any origin
-    .AllowCredentials()); // allow credentials
+
+// ********************
+// USE CORS - might not be required.
+// ********************
+app.UseCors("AllowAll");
 
 app.MapControllers();
 
