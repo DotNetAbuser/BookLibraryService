@@ -16,13 +16,19 @@
       @foreach (var order in _ordersList)
       {
          <div class="box">
-            <p> Взята в пользование с : <span>@order.TakenFrom.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>
-            <p> Нужно будет вернуть до : <span>@order.TakenTo.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>
+             @if (order.Status != "Ожидается подтверждения продления")
+             {
+                <p> Взята в пользование с : <span>@order.TakenFrom.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>
+                <p> Нужно будет вернуть до : <span>@order.TakenTo.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</span> </p>  
+             }
+            <p> Название книги : <span>@order.BookTitle</span> </p>
             <p> Имя пользователя на кого взята книга : <span>@order.Username</span> </p>
             <p> Статус :<span> @order.Status </span> </p>
             <p> Создано : <span> @order.Created.ToLocalTime().ToString("dd.MM.yyyy HH:mm") </span></p>
-            @*<button class="btn delete-btn">Отменить</button>
-            <button class="btn">Продлить</button>*@
+            @if (order.Status is not ("Ожидается подтверждения продления" or "Закрыта" or "Ожидает возврата"))
+            {
+               <button @onclick="async () => await ExtendOrderAsync(order.Id)" class="btn">Продлить на 7 дней</button>
+            }
          </div>
       }
       
@@ -33,12 +39,12 @@
 
    </div>
    
-      @if (_totalCount > _ordersList.Count)
-      {
-         <div style="display: flex; justify-content: center;">
-            <button @onclick="GetNextDataMyOrdersAsync" class="btn">Показать ещё</button>
-         </div>
-      }
+   @if (_totalCount > _ordersList.Count)
+   { 
+      <div style="display: flex; justify-content: center;">
+         <button @onclick="GetNextDataMyOrdersAsync" class="btn">Показать ещё</button>
+      </div>
+   }
    
    @if (_isBusy) 
    {
@@ -70,12 +76,44 @@
       await LoadDataMyOrdersAsync();
    }
 
+   private async Task ExtendOrderAsync(Guid id)
+   {
+      try
+      {
+         _isBusy = true;
+
+         var request = new ExtendOrderRequest(DaysCount: 7);
+         var result = await OrderManager.ExtendOrderAsync(id, request);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         await LoadDataMyOrdersAsync();
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
    private async Task LoadDataMyOrdersAsync()
    {
       try
       {
          _isBusy = true;
 
+         _ordersList.Clear();
+         _totalCount = 0;
+         _pageNumber = 1;
+         
          var result = await OrderManager.GetPaginatedMyOrdersAsync(_pageNumber, _pageSize);
          if (!result.Succeeded)
          {

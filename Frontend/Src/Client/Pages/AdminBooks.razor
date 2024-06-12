@@ -1,0 +1,415 @@
+﻿@page "/admin-books"
+@using Shared.Enums
+
+@layout AdminLayout
+
+@attribute [Authorize(Roles = "Библиотекарь")]
+
+<link rel="stylesheet" href="./assets/css/admin_style.css">
+
+<section class="add-products">
+
+   <h1 class="title">Редактирование списка книг</h1>
+
+   <EditForm Model="_createBookRequest" OnValidSubmit="CreateBookAsync">
+      <DataAnnotationsValidator/>
+      <h3>Добавить книгу</h3>
+      <InputText class="box" placeholder="Название книги" @bind-Value="_createBookRequest.Title"/>
+      <InputTextArea class="box" placeholder="Описание книги" @bind-Value="_createBookRequest.Description"/>
+      <InputSelect class="box" @bind-Value="_createBookRequest.AuthorId">
+         @if (_createBookRequest.AuthorId == 0)
+         {
+            <option value="0" selected>Не выбрано</option>
+
+         }
+         @foreach (var author in _authorsList)
+         {
+            <option value="@author.Id">@author.LastName @author.FirstName @author.MiddleName</option>
+         }
+      </InputSelect>
+      <InputSelect class="box" @bind-Value="_createBookRequest.GenreId">
+         @if (_createBookRequest.GenreId == 0)
+         { 
+            <option value="0" selected>Не выбрано</option>
+         }
+         @foreach (var genre in _genresList)
+         {
+            <option value="@genre.Id">@genre.Name</option>
+         }
+      </InputSelect>
+      <InputNumber class="box" placeholder="Год издания" @bind-Value="_createBookRequest.Year"/>
+      <InputNumber class="box" placeholder="Кол-во книг" @bind-Value="_createBookRequest.Quantity"/>
+      <InputFile class="box" OnChange="@CreateBookLoadFileAsync"  />
+      <ValidationSummary/>
+      <input type="submit" value="Добавить" class="btn">
+   </EditForm>
+
+</section>
+
+<!-- product CRUD section ends -->
+
+<!-- show products  -->
+
+<section class="show-products">
+
+   <div class="box-container">
+
+      @foreach (var book in _booksList)
+      {
+         <div class="box">
+            <img src="@(ApplicationConstants.BackendAddress + book.PicturePath)" alt="">
+            <div class="name">@book.Title</div>
+            <div class="name">@book.AuthorLastName @book.AuthorFirstName @book.AuthorMiddleName</div>
+            <div class="name">@book.Year</div>
+            <div class="name">Оставшиеся кол-во: <span>@book.Quantity</span></div>
+            <button @onclick="@(() => ShowModalUpdateBook(@book))" class="option-btn">Обновить</button>
+            <button @onclick="@(() => DeleteBookAsync(@book.Id))" class="delete-btn">Удалить</button>
+         </div>
+      }
+      
+   @if (!_isBusy && _booksList.Count == 0)
+   {
+      <p class="empty">Здесь пока ничего нет!</p>
+   }
+      
+   </div>
+
+   @if (_totalCount > _booksList.Count)
+   { 
+      <div style="display: flex; justify-content: center;">
+         <button @onclick="GetNextDataBooksAsync" class="btn">Показать ещё</button>
+      </div>
+   }
+
+   @if (_isBusy)
+   {
+      <div style="display: flex; justify-content: center; grid-column: span">
+         <div class="loader"></div>
+      </div>
+   }
+   
+</section>
+
+<section class="edit-product-form" style="@_displayEditFormState">
+   
+   <EditForm Model="_updateBookRequest" OnValidSubmit="UpdateBookAsync">
+      <DataAnnotationsValidator/>
+      <InputText class="box" placeholder="Название книги" @bind-Value="_updateBookRequest.Title"/>
+      <InputTextArea class="box" placeholder="Описание книги" @bind-Value="_updateBookRequest.Description"/>
+      <InputSelect class="box" @bind-Value="_updateBookRequest.AuthorId">
+         @if (_updateBookRequest.AuthorId == 0)
+         {
+            <option value="0" selected>Не выбрано</option>
+         }
+         @foreach (var author in _authorsList)
+         {
+            <option value="@author.Id">@author.LastName @author.FirstName @author.MiddleName</option>
+         }
+      </InputSelect>
+      <InputSelect class="box" @bind-Value="_updateBookRequest.GenreId">
+         @if (_updateBookRequest.GenreId == 0)
+         {
+            <option value="0" selected>Не выбрано</option>
+         }
+         @foreach (var genre in _genresList)
+         {
+            <option value="@genre.Id">@genre.Name</option>
+         }
+      </InputSelect>
+      <InputNumber class="box" placeholder="Год издания" @bind-Value="_updateBookRequest.Year"/>
+      <InputNumber class="box" placeholder="Кол-во книг" @bind-Value="_updateBookRequest.Quantity"/>
+      <InputFile class="box" OnChange="@UpdateBookLoadFileAsync"  />
+      <ValidationSummary/>
+      <input @onclick="async () => await CancelModalUpdateBook()" type="reset" value="Отменить" id="close-update" class="option-btn">
+      <input type="submit" value="Сохранить" name="update_product" class="btn">
+   </EditForm>
+
+</section>
+
+@code{
+   
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] IBookManager BookManager { get; set; } = default!;
+   [Inject] IAuthorManager AuthorManager { get; set; } = default!;
+   [Inject] IGenreManager GenreManager { get; set; } = default!;
+   [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+   private const string DisplayInactive = "display: none";
+   private const string DisplayActive = "display: flex";
+
+   private string _displayEditFormState = DisplayInactive;
+
+   private Guid _updatedBookId = Guid.Empty;
+   private UpdateBookRequest _updateBookRequest = new();
+   
+   private CreateBookRequest _createBookRequest = new(); 
+   
+   private bool _isBusy;
+   private List<BookResponse> _booksList = [];
+   private int _totalCount;
+
+   private List<AuthorResponse> _authorsList = [];
+   private List<GenreResponse> _genresList = [];
+   
+   private int pageNumber = 1;
+   private int pageSize = 6;
+
+   protected override async Task OnInitializedAsync()
+   {
+      await base.OnInitializedAsync();
+      await LoadDataAuthorsAsync();
+      await LoadDataGenresAsync();
+      await LoadDataBooksAsync();
+   }
+
+   private async Task CreateBookLoadFileAsync(InputFileChangeEventArgs e)
+   {
+      var ms = new MemoryStream();
+      await e.File.OpenReadStream().CopyToAsync(ms);
+      
+      _createBookRequest.BookPictureRequest = new UploadRequest
+      {
+         FileName = e.File.Name,
+         Extension = e.File.ContentType,
+         UploadType = UploadType.BookPicture,
+         Data = ms.ToArray()
+      };
+   }
+   
+   private async Task UpdateBookLoadFileAsync(InputFileChangeEventArgs e)
+   {
+         var ms = new MemoryStream();
+         await e.File.OpenReadStream().CopyToAsync(ms);
+      
+         await JsRuntime.InvokeVoidAsync("alert", "2");
+
+         _updateBookRequest.BookPictureRequest = new UploadRequest
+         {
+            FileName = e.File.Name,
+            Extension = e.File.ContentType,
+            UploadType = UploadType.BookPicture,
+            Data = ms.ToArray()
+         };
+         await JsRuntime.InvokeVoidAsync("alert", "2");
+
+   }
+
+   private async Task LoadDataAuthorsAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await AuthorManager.GetAllAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         _authorsList = [..result.Data];
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task LoadDataGenresAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await GenreManager.GetAllAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         _genresList = [..result.Data];
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task LoadDataBooksAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         _booksList.Clear();
+         _totalCount = 0;
+         pageNumber = 1;
+         
+         var result = await BookManager.GetPaginatedBooksAsync(
+            pageNumber, pageSize, string.Empty);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         foreach (var book in result.Data.List)
+            _booksList.Add(book);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task GetNextDataBooksAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         pageNumber += 1;
+
+         var result = await BookManager.GetPaginatedBooksAsync(
+            pageNumber, pageSize, string.Empty);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+
+         foreach (var book in result.Data.List)
+            _booksList.Add(book);
+         _totalCount = result.Data.TotalCount;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task ShowModalUpdateBook(BookResponse book)
+   {
+      _updatedBookId = book.Id;
+      _updateBookRequest.AuthorId = book.AuthorId;
+      _updateBookRequest.GenreId = book.GenreId;
+      _updateBookRequest.Title = book.Title;
+      _updateBookRequest.Description = book.Description;
+      _updateBookRequest.Year = book.Year;
+      _updateBookRequest.Quantity = book.Quantity;
+      _displayEditFormState = DisplayActive;
+   }
+
+   private async Task CancelModalUpdateBook()
+   {
+      _updatedBookId = Guid.Empty;
+      _updateBookRequest = new();
+      _displayEditFormState = DisplayInactive;
+   }
+
+   private async Task CreateBookAsync()
+   {
+      try
+      {
+         _isBusy = true;
+         
+         var result = await BookManager.CreateAsync(_createBookRequest);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         await LoadDataBooksAsync();
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task UpdateBookAsync()
+   {
+      try
+      {
+         _isBusy = true;
+         
+         var result = await BookManager.UpdateAsync(_updatedBookId, _updateBookRequest);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         await CancelModalUpdateBook();
+         await LoadDataBooksAsync();
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+   private async Task DeleteBookAsync(Guid id)
+   {
+      try
+      {
+         _isBusy = true;
+         
+         var result = await BookManager.DeleteAsync(id);
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         foreach (var message in result.Messages)
+            await JsRuntime.InvokeVoidAsync("alert", message);
+         await LoadDataBooksAsync();
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+}
+
+

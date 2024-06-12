@@ -2,5 +2,5 @@
 
 public interface IOrderStatusService
 {
-    
+    Task<Result<IEnumerable<OrderStatusResponse>>> GetAllStatusesAsync();
 }

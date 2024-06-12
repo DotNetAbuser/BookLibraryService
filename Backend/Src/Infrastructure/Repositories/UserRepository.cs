@@ -19,7 +19,14 @@ public class UserRepository(
             .Include(x => x.Role)
             .SingleOrDefaultAsync(x => x.Id == id);
     }
-    
+
+    public async Task<int> GetCountAsync()
+    {
+        return await dbContext.Users
+            .AsNoTracking()
+            .CountAsync();
+    }
+
     public async Task<bool> IsExistByEmailAsync(string email)
     {
         return await dbContext.Users

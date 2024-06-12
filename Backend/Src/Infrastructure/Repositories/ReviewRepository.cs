@@ -28,4 +28,11 @@ public class ReviewRepository(
         await dbContext.Reviews.AddAsync(entity);
         await dbContext.SaveChangesAsync();
     }
+
+    public async Task<int> GetCountAsync()
+    {
+        return await dbContext.Reviews
+            .AsNoTracking()
+            .CountAsync();
+    }
 }

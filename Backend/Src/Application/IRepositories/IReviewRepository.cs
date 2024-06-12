@@ -6,4 +6,5 @@ public interface IReviewRepository
         int pageNumber, int pageSize);
 
     Task CreateAsync(ReviewEntity entity);
+    Task<int> GetCountAsync();
 }

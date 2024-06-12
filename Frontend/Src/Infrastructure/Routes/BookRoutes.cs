@@ -12,4 +12,14 @@ public static class BookRoutes
             $"&searchTerms={searchTerms}";
 
     public static string? GetById(Guid id) => BaseUrl + $"/{id}";
+
+    public static string Create => BaseUrl;
+
+    public static string Update(Guid id) =>
+        BaseUrl + $"/{id}";
+
+    public static string Delete(Guid id) =>
+        BaseUrl + $"/{id}";
+
+    public static string GetCount => BaseUrl + "/count";
 }

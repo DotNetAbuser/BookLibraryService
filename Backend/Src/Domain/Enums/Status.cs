@@ -4,6 +4,7 @@ public enum Status
 {
     WaitingTaking = 1,
     InTaken = 2,
-    WaitingReturning = 3,
-    Closed = 4
+    ExtendWaiting = 3,
+    WaitingReturning = 4,
+    Closed = 5,
 }

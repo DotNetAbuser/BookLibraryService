@@ -23,4 +23,16 @@ public static class OrderRoutes
             $"&pageSize={pageSize}";
 
     public static string Create => BaseUrl;
+
+    public static string Delete(Guid id) =>
+        BaseUrl + $"/{id}";
+
+    public static string ChangeOrderStatus(Guid id) =>
+        BaseUrl + $"/{id}/status";
+
+    public static string ExtendOrder(Guid id) =>
+        BaseUrl + $"/{id}/extend";
+    
+    public static string GetCount => BaseUrl + "/count";
+
 }

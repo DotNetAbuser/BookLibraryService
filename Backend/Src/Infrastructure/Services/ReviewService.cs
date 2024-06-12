@@ -7,6 +7,12 @@ public class ReviewService(
     IReviewRepository reviewRepository)
     : IReviewService
 {
+    public async Task<Result<int>> GetCountAsync()
+    {
+        var reviewsCount = await reviewRepository.GetCountAsync();
+        return Result<int>.Success(reviewsCount, "Кол-во оценок успешно получено.");
+    }
+
     public async Task<Result<PaginatedData<ReviewResponse>>> GetPaginatedReviewsAsync(
         int pageNumber, int pageSize)
     {

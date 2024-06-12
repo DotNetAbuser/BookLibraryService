@@ -2,6 +2,8 @@
 
 public interface IReviewService
 {
+    Task<Result<int>> GetCountAsync();
+
     Task<Result<PaginatedData<ReviewResponse>>> GetPaginatedReviewsAsync(
         int pageNumber, int pageSize);
 

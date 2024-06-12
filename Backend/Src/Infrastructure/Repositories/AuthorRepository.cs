@@ -21,4 +21,11 @@ public class AuthorRepository(
         return new PaginatedData<AuthorEntity>(
             List: list, TotalCount: totalCount);
     }
+
+    public async Task<IEnumerable<AuthorEntity>> GetAllAsync()
+    {
+        return await dbContext.Authors
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }

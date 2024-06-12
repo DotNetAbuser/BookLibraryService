@@ -43,10 +43,10 @@ public class UserConfiguration
             new() 
             {
                 Id = Guid.NewGuid(),
-                RoleId = (int)Role.Admin,
+                RoleId = (int)Role.Librarian,
                 PicturePath = "Files//Images//ProfilePictures//7.jpg",
-                Email = "aziz_admin@gmail.com",
-                Username = "aziz_admin",
+                Email = "aziz_librarian@gmail.com",
+                Username = "aziz_librarian",
                 PasswordHash = BCrypt.Net.BCrypt.EnhancedHashPassword("1234567890")
             },
             

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YiDJdtWuM3X+UI24260SkBZQm316yV/1x6Tg/v6+Msw=",
+  "Hash": "gJGHBaIdpPVD952+EYV/huC9FoBW+1SS9d+Czs7Aexs=",
   "Source": "Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -8394,6 +8394,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
+    },
+    {
+      "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\admin_style.css",
+      "SourceId": "Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "assets/css/admin_style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\admin_style.css"
     },
     {
       "Identity": "C:\\Users\\ilyao\\Desktop\\Projects\\BookLibraryService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\app.css",

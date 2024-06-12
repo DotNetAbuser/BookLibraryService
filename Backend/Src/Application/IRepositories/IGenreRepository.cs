@@ -2,5 +2,5 @@
 
 public interface IGenreRepository
 {
-    
+    Task<IEnumerable<GenreEntity>> GetAllAsync();
 }

@@ -20,4 +20,18 @@ public class AuthorService(
             .Success(new PaginatedData<AuthorResponse>(
                 List: authorsResponse, TotalCount: totalCount), "Список авторов успешно получен.");
     }
+
+    public async Task<Result<IEnumerable<AuthorResponse>>> GetAllAsync()
+    {
+        var authorsEntities = await authorRepository.GetAllAsync();
+        var authorsResponse = authorsEntities
+            .Select(authorEntity => 
+                new AuthorResponse(
+                    Id: authorEntity.Id,
+                    PicturePath: authorEntity.PicturePath,
+                    LastName: authorEntity.LastName,
+                    FirstName: authorEntity.FirstName,
+                    MiddleName: authorEntity.MiddleName)).ToList();
+        return Result<IEnumerable<AuthorResponse>>.Success(authorsResponse, "Список всех авторов успешно получен.");
+    }
 }

@@ -20,8 +20,13 @@
             <a href="catalog">Каталог</a>
             <AuthorizeView>
                 <Authorized>
-                       <a href="review">Оставить отзыв</a>
-                       <a href="orders">Заказы</a>
+                    <a href="review">Оставить отзыв</a>
+                    <a href="orders">Заказы</a>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="Библиотекарь">
+                <Authorized>
+                   <a href="admin-dashboard">Режим библиотекаря</a>
                 </Authorized>
             </AuthorizeView>
      
@@ -32,7 +37,7 @@
             <a href="search-page" class="fas fa-search"></a>
             <AuthorizeView>
                 <Authorized>
-                    <div id="@_userBtnStateClass" @onclick="ChangeUserBoxClass" class="fas fa-user"></div>
+                    <div  @onclick="ChangeUserBoxClass" class="fas fa-user"></div>
                 </Authorized>
             </AuthorizeView>
         </div>

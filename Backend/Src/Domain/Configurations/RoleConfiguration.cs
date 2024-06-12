@@ -24,8 +24,8 @@ public class RoleConfiguration
             },
             new()
             {
-                Id = (int)Role.Admin,
-                Name = "Админ"
+                Id = (int)Role.Librarian,
+                Name = "Библиотекарь"
             }
         });
     }

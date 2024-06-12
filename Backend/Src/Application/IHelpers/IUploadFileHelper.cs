@@ -2,5 +2,6 @@
 
 public interface IUploadFileHelper
 {
-    
+    string UploadFile(UploadRequest request);
+
 }

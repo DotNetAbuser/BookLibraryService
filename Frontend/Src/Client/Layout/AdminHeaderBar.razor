@@ -1,0 +1,74 @@
+﻿<div class="flex">
+
+   <a href="admin-dashboard" class="logo"><span>Режим библиотекаря</span></a>
+
+   <nav class="@_navBarStateClass">
+      <a href="admin-dashboard">Панель данных</a>
+      <a href="admin-books">Книги</a>
+      <a href="admin-orders">Заказы</a>
+      @*<a href="admin-users">Пользователи</a>*@
+      <a href="home">Режим пользователь</a>
+   </nav>
+
+   <div class="icons">
+      <div id="menu-btn" @onclick="ChangeNavBarClass" class="fas fa-bars"></div>
+      <AuthorizeView>
+         <Authorized>
+            <div @onclick="ChangeAccountBoxClass" class="fas fa-user"></div>
+         </Authorized>
+      </AuthorizeView>   
+   </div>
+   
+   <div class="@_accountHomeStateClass">
+      <AuthorizeView>
+               <p>username : <span>@context.User.Identity!.Name</span></p>
+               <a @onclick="SignOut" class="delete-btn">Выйти</a>
+      </AuthorizeView>
+      <AuthorizeView>
+         <NotAuthorized>
+            <p><a href="sign-in">Войти</a> | <a href="sign-up">Регистрация</a> </p>
+         </NotAuthorized>
+      </AuthorizeView>
+   </div>
+   
+
+</div>
+
+@code{
+
+   [Inject] CustomAuthStateProvider CustomAuthStateProvider { get; set; } = default!;
+   [Inject] NavigationManager NavigationManager { get; set; } = default!;
+
+   private const string NavBarActiveClass = "navbar active";
+   private const string NavBarInactiveClass = "navbar";
+
+   private string _navBarStateClass = NavBarInactiveClass;
+
+   private const string AccountHomeActiveClass = "account-box active";
+   private const string AccountHomeInactiveClass = "account-box";
+
+   private string _accountHomeStateClass = AccountHomeInactiveClass;
+    
+   private const string UserBtnActiveClass = "user-btn active";
+   private const string UserBtnInactiveClass = "user-btn"; 
+    
+   private string _userBtnStateClass = UserBtnInactiveClass;
+
+   private void ChangeNavBarClass() =>
+      _navBarStateClass = _navBarStateClass == NavBarInactiveClass
+         ? NavBarActiveClass
+         : NavBarInactiveClass;
+
+   private void ChangeAccountBoxClass()
+   {
+      _accountHomeStateClass = _accountHomeStateClass == AccountHomeInactiveClass
+         ? AccountHomeActiveClass
+         : AccountHomeInactiveClass;
+        
+      _userBtnStateClass = _userBtnStateClass == UserBtnInactiveClass
+         ? UserBtnActiveClass
+         : UserBtnInactiveClass;
+   }
+
+   private async Task SignOut() => await CustomAuthStateProvider.MarkUserAsLoggedOut();
+}

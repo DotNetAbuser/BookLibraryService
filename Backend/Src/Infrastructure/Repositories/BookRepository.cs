@@ -58,9 +58,42 @@ public class BookRepository(
             .SingleOrDefaultAsync(x => x.Id == id);
     }
 
+    public async Task CreateAsync(BookEntity entity)
+    {
+        await dbContext.Books.AddAsync(entity);
+        await dbContext.SaveChangesAsync();
+    }
+
     public async Task UpdateAsync(BookEntity entity)
     {
         dbContext.Books.Update(entity);
         await dbContext.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(BookEntity entity)
+    {
+        dbContext.Books.Remove(entity);
+        await dbContext.SaveChangesAsync();
+    }
+
+    public async Task<bool> IsExistByTitleAsync(string title)
+    {
+        return await dbContext.Books
+            .AsNoTracking()
+            .AnyAsync(x => x.Title == title);
+    }
+
+    public async Task<bool> IsExistForUpdateByTitleAsync(Guid id, string title)
+    {
+        return await dbContext.Books
+            .AsNoTracking()
+            .AnyAsync(x => x.Title == title && x.Id != id);
+    }
+
+    public async Task<int> GetCountAsync()
+    {
+        return await dbContext.Books
+            .AsNoTracking()
+            .CountAsync();
     }
 }

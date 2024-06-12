@@ -1,0 +1,171 @@
+﻿@page "/admin-dashboard"
+
+@layout AdminLayout
+
+@attribute [Authorize(Roles = "Библиотекарь")]
+
+<section class="dashboard">
+
+   <h1 class="title">Панель управления</h1>
+   @if (!_isBusy)
+   {
+      <div class="box-container">
+      
+         <div class="box">
+            <h3>@_booksCount</h3>
+            <p>Книг в системе</p>
+         </div>
+      
+         <div class="box">
+            <h3>@_ordersCount</h3>
+            <p>Заказов в системе</p>
+         </div>
+
+
+         <div class="box">
+            <h3>@_reviewsCount</h3>
+            <p>Кол-во отзывов</p>
+         </div>
+      
+         <div class="box">
+            <h3>@_usersCount</h3>
+            <p>Кол-во пользователей</p>
+         </div>
+
+      </div>
+   }
+   else
+   {
+      <div style="display: flex; justify-content: center;">
+         <div class="loader"></div>
+      </div>
+   }
+   
+
+</section>
+
+@code{
+
+   [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+   [Inject] IBookManager BookManager { get; set; } = default!;
+   [Inject] IOrderManager OrderManager { get; set; } = default!;
+   [Inject] IReviewManager ReviewManager { get; set; } = default!;
+   [Inject] IUserManager UserManager { get; set; } = default!;
+    
+   private bool _isBusy;
+   
+   private int _booksCount;
+   private int _ordersCount;
+   private int _reviewsCount;
+   private int _usersCount;
+
+   protected override async Task OnInitializedAsync()
+   {
+      await base.OnInitializedAsync();
+      await LoadDataBooksCountAsync();
+      await LoadDataOrdersCountAsync();
+      await LoadDataReviewsCountAsync();
+      await LoadDataUsersCountAsync();
+   }
+
+   private async Task LoadDataBooksCountAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await BookManager.GetCountAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         _booksCount = result.Data;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task LoadDataOrdersCountAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await OrderManager.GetCountAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         _ordersCount = result.Data;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task LoadDataReviewsCountAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await ReviewManager.GetCountAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         _reviewsCount = result.Data;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+   
+   private async Task LoadDataUsersCountAsync()
+   {
+      try
+      {
+         _isBusy = true;
+
+         var result = await UserManager.GetCountAsync();
+         if (!result.Succeeded)
+         {
+            foreach (var message in result.Messages)
+               await JsRuntime.InvokeVoidAsync("alert", message);
+            return;
+         }
+         _usersCount = result.Data;
+      }
+      catch (Exception ex)
+      {
+         await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+      }
+      finally
+      {
+         _isBusy = false;
+      }
+   }
+
+}

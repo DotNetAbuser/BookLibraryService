@@ -26,8 +26,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Layout/EmptyLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEVtcHR5TGF5b3V0LnJhem9y
+[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Layout/AdminHeaderBar.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEFkbWluSGVhZGVyQmFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Layout/AdminLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XEFkbWluTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Layout/FooterBar.razor]
@@ -44,6 +48,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Pages/About.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Pages/AdminBooks.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5Cb29rcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Pages/AdminDashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5EYXNoYm9hcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Pages/AdminOrders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5PcmRlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ilyao/Desktop/Projects/BookLibraryService/Frontend/Src/Client/Pages/Catalog.razor]

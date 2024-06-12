@@ -29,6 +29,11 @@ public class OrderStatusConfiguration
             },
             new()
             {
+              Id  = (int)Status.ExtendWaiting,
+              Name = "Ожидается подтверждения продления"
+            },
+            new()
+            {
                 Id = (int)Status.WaitingReturning,
                 Name = "Ожидает возврата" 
             },

@@ -6,7 +6,9 @@ public static class AuthorRoutes
     
     public static string GetPaginatedAuthors(
         int pageNumber, int pageSize) =>
-        BaseUrl + 
+        BaseUrl + "/paginated" +
             $"?pageNumber={pageNumber}" +
             $"&pageSize={pageSize}";
+
+    public static string GetAllAsync => BaseUrl;
 }

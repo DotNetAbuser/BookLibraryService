@@ -4,6 +4,12 @@ public class UserService(
     IUserRepository userRepository)
     : IUserService
 {
+    public async Task<Result<int>> GetCountAsync()
+    {
+        var usersCount = await userRepository.GetCountAsync();
+        return Result<int>.Success(usersCount,"Кол-во пользователей в системе успешно получены.");
+    }
+
     public async Task<Result> CreateAsync(SignUpRequest request)
     {
         var isExistByEmail = await userRepository.IsExistByEmailAsync(

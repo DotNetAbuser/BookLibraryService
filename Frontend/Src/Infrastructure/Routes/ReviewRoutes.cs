@@ -11,4 +11,7 @@ public static class ReviewRoutes
             $"&pageSize={pageSize}";
 
     public static string Create => BaseUrl;
+    
+    public static string GetCount => BaseUrl + "/count";
+
 }

@@ -3,6 +3,8 @@
 public record BookResponse(
     Guid Id,
     string PicturePath,
+    int AuthorId,
+    int GenreId,
     string AuthorLastName,
     string AuthorFirstName,
     string AuthorMiddleName,

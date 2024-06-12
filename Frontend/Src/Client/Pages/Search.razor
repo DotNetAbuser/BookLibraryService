@@ -21,6 +21,10 @@
             <img src="@(ApplicationConstants.BackendAddress + book.PicturePath)" alt="" class="image">
             <div class="name" style="min-height: 75px">@book.Title</div>
             <div class="box"><h2>Жанр: @book.Genre</h2></div>
+            <div class="box">
+               <h2> Автор: @book.AuthorLastName @book.AuthorFirstName @book.AuthorMiddleName</h2> 
+            </div>
+            <div class="box"><h2>Год выпуска: @book.Year</h2></div>
             <div type="number"  class="qty" name="product_quantity">Кол-во свободных @book.Quantity</div>
             @if (book.Quantity != 0)
             {
